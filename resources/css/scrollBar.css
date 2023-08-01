@@ -1,0 +1,100 @@
+/*Scroll Bar Colours*/
+
+/* Main Site */
+
+/* Dark Mode doesnt work on Firefox*/
+.dark {
+/* Works on Firefox */
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: #292929 #DDDDDD;
+    }
+
+    /* Works on Chrome, Edge, and Safari */
+    html::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    html::-webkit-scrollbar-track {
+        background: #DDDDDD;
+    }
+
+    html::-webkit-scrollbar-thumb {
+        background-color: #292929;
+        border-radius: 20px;
+        border: 3px solid #292929;
+    }
+}
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #FFC734 #292929;
+}
+
+/* Works on Chrome, Edge, and Safari */
+html::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+    background: #292929;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #FFC734;
+    border-radius: 20px;
+    border: 3px solid #FFC734;
+}
+
+
+
+
+
+
+#reduce-image {
+
+
+.dark {
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #292929 #DDDDDD;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #DDDDDD;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #292929;
+    border-radius: 20px;
+    border: 3px solid #292929;
+}
+
+}
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #FFC734 transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #292929;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #FFC734;
+    border-radius: 20px;
+    border: 3px solid #FFC734;
+}
+
+}

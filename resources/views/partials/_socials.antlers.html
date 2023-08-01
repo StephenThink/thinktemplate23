@@ -1,0 +1,7 @@
+<ul class="flex items-center space-x-6">
+    {{ foreach:company:social_links }}
+        <a href="{{ value }}" class="flex items-center justify-center h-7 w-7" title="{{ label }}">
+            {{ svg src="assets/site/social-icons/{key}" :aria-label="label" role="img" }}
+        </a>
+    {{ /foreach:company:social_links }}
+</ul>

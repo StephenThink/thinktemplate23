@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {{ site_admin }}
+        <link rel="icon" href="{{ by32 }}" sizes="32x32">
+        <link rel="icon" href="{{ by192 }}" sizes="192x192">
+        <link rel="apple-touch-icon"
+              sizes="72x72" href="{{ glide:apple_touch width="72" height="72" fit="contain" format="png" }}">
+        <link rel="apple-touch-icon"
+              sizes="114x114" href="{{ glide:apple_touch width="114" height="114" fit="contain" format="png" }}">
+        <link rel="apple-touch-icon"
+              sizes="144x144" href="{{ glide:apple_touch width="144" height="144" fit="contain" format="png" }}">
+        {{ /site_admin }}
+
+        {{#      Disable Robots on none Production Versions #}}
+        {{ if environment != 'production' }}
+            <meta name="robots" content="noindex">
+        {{ /if }}
+
+        <title>{{ title ?? site:name }}</title>
+        {{ vite src="resources/js/site.js|resources/css/site.css" }}
+
+        {{#      Google Analytics#}}
+        {{ if site_admin:analytics_active  }}
+            {{ if {oreo:analytics} }}
+                {{  site_admin }}
+                {{ google_analytics }}
+                <script async
+                        src="https://www.googletagmanager.com/gtag/js?id={{ if environment == 'local' }}{{ local }}{{  elseif environment == 'staging' }}{{ staging }}{{  elseif environment == 'production' }}{{ production }}{{  /if }}"></script>
+                <script>
+                    window.dataLayer = window.dataLayer || [];
+
+                    function gtag() {
+                        dataLayer.push(arguments);
+                    }
+
+                    gtag('js', new Date());
+
+                    gtag('config', '{{ if environment == 'local' }}{{ local }}{{  elseif environment == 'staging' }}{{ staging }}{{  elseif environment == 'production' }}{{ production }}{{  /if }}', {
+                        cookie_flags: 'max-age=31536000;secure;samesite=strict'
+                    });
+                </script>
+                {{ /google_analytics }}
+                {{ /site_admin }}
+            {{ /if }}
+        {{ /if }}
+        {{#  #}}
+
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    </head>
+
+        <body class="bg-gray-100 dark:bg-black font-sans leading-normal text-gray-800 dark:text-white subpixel-antialiased w-full {{ if environment != 'production' }}debug-screens{{ /if }}" data-barba="wrapper">
+                {{  partial:partials/main_nav }}
+                <main data-barba="container" data-barba-namespace="home">
+            <div class="flex flex-col items-center">
+
+                    {{  partial:partials/hero }}
+                    {{ template_content }}
+
+            </div>
+                {{  partial:partials/footer }}
+                </main>
+
+
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    </body>
+</html>

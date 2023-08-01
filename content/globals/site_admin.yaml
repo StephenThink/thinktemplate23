@@ -1,0 +1,17 @@
+title: 'Site Admin'
+data:
+  analytics_active: false
+  google_analytics:
+    local: localga
+    staging: stagega
+    production: prodga
+  by32: site/icons/cropped-site-icon-2-32x32.png
+  by192: site/icons/cropped-site-icon-2-192x192.png
+  apple_touch: site/icons/cropped-site-icon-2-180x180.png
+  safe_truncating:
+    two-third-content: '575'
+    full-width-images: '600'
+  display_what: both
+  company_logo: site/icons/think.svg
+  company_name: 'Think!Creative Uk LTD'
+  company_link: 'https://thinkcreative.uk'

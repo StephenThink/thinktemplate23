@@ -1,0 +1,93 @@
+title: 'Legal Content'
+fields:
+  -
+    handle: paragraphs
+    field:
+      collapse: false
+      always_show_set_button: false
+      previews: true
+      sets:
+        sections:
+          display: Sections
+          fields:
+            -
+              handle: heading
+              field:
+                input_type: text
+                antlers: false
+                display: Heading
+                type: text
+                icon: text
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
+            -
+              handle: section_content
+              field:
+                collapse: false
+                always_show_set_button: false
+                previews: true
+                buttons:
+                  - h2
+                  - h3
+                  - bold
+                  - italic
+                  - unorderedlist
+                  - orderedlist
+                  - removeformat
+                  - quote
+                  - anchor
+                  - image
+                  - underline
+                save_html: false
+                toolbar_mode: floating
+                link_noopener: false
+                link_noreferrer: false
+                target_blank: false
+                reading_time: false
+                fullscreen: true
+                allow_source: true
+                enable_input_rules: true
+                enable_paste_rules: true
+                antlers: false
+                remove_empty_nodes: trim
+                display: 'Section Content'
+                type: bard
+                icon: bard
+                listable: hidden
+                instructions_position: above
+                visibility: visible
+                always_save: false
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - anchor
+        - image
+        - table
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: true
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: trim
+      display: Paragraphs
+      type: bard
+      icon: bard
+      instructions: 'Just this to type in the content, you can type straight into this or use the modules provided'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false

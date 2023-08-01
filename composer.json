@@ -1,0 +1,9 @@
+{
+    "name": "stephenthink/thinktemplate23",
+    "extra": {
+        "statamic": {
+            "name": "Thinktemplate23",
+            "description": "Thinktemplate23 starter kit"
+        }
+    }
+}

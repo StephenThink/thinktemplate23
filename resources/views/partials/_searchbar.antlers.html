@@ -1,0 +1,21 @@
+<div id="search_bar" x-cloak x-data="{ showSearch: false, searchQuery: '', searchResults: false }" @keydown.escape="showSearch = (searchQuery !== ''); searchQuery = ''">
+    <button type="button" class="hidden md:flex items-center py-2 px-4 group text-primary hover:text-white transition font-bold antialiased" @click="showSearch = true; $focus.next()">
+        <svg class="mr-3 text-primary transition group-hover:text-white" xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 16 16"><path d="M15.587 14.413l-4.354-4.353A6.1 6.1 0 0012.5 6.333a6.18 6.18 0 10-2.44 4.907l4.353 4.353a.84.84 0 001.174 0 .833.833 0 000-1.18zM1.833 6.333a4.5 4.5 0 114.5 4.5 4.507 4.507 0 01-4.5-4.5z" fill="currentColor"/></svg>
+        <span>{{ show_label }}{{ search_page:label }}{{ /show_label }}</span>
+    </button>
+    <div
+        class="fixed p-[12vh] inset-0 z-30 backdrop-blur-sm flex flex-col overflow-auto bg-black bg-opacity-50"
+        x-cloak
+        x-transition.opacity
+        x-show="showSearch"
+        x-trap.noscroll="showSearch"
+    >
+        <div class="mx-auto text-left bg-secondary w-full rounded-lg max-w-4xl" click.away="showSearch = false" x-transition @click.outside="showSearch = false; searchQuery = ''">
+            <form action="/search" class="p-2 flex items-center px-6">
+                <svg class="mr-4 text-primary" xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 16 16"><path d="M15.587 14.413l-4.354-4.353A6.1 6.1 0 0012.5 6.333a6.18 6.18 0 10-2.44 4.907l4.353 4.353a.84.84 0 001.174 0 .833.833 0 000-1.18zM1.833 6.333a4.5 4.5 0 114.5 4.5 4.507 4.507 0 01-4.5-4.5z" fill="currentColor"/></svg>
+                <input name="q" type="text" ref="searchInput" x-model="searchQuery" class="bg-transparent block w-11/12 text-white inline-block py-2 focus:outline-none focus-border focus-border-white placeholder:text-primary" placeholder="{{ search_page:placeholder }}">
+                <button class="text-2xs tracking-wider bg-secondary px-1 py-px rounded-sm hover:text-white ml-4" @click="showSearch = false">ESC</button>
+            </form>
+        </div>
+    </div>
+</div>

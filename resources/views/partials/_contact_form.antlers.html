@@ -1,0 +1,26 @@
+    <section class="container my-section lg:my-section-lg">
+        {{ form:contact_us js=='alpine'}}
+            {{#              Adding js='alpine' means its now an alpine form #}}
+            {{ if success }}
+                <p class="text-primary font-bold mb-4">Thanks! Someone will be in touch soon.</p>
+            {{ /if }}
+            {{ if errors }}
+                <p class="text-red-600">There are errors! Please fix them below.</p>
+                <ul class="text-red-500">
+                    {{ errors }}
+                        <li>{{  value }}</li>
+                    {{ /errors }}
+                </ul>
+            {{ /if }}
+            <div class="flex flex-col  pb-4 gap-4">
+                <input type="hidden" name="username">
+                {{ fields }}
+                    {{ field }}
+                {{ /fields }}
+            </div>
+            <button
+                class="w-full md:w-auto bg-secondary hover:bg-primary rounded-lg text-primary hover:text-secondary inline-block py-3 px-8 font-bold transition ">
+                Submit
+            </button>
+        {{ /form:contact_us }}
+    </section>

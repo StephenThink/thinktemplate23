@@ -1,0 +1,15 @@
+title: 'Search Page'
+data:
+  show_label: false
+  label: Search
+  placeholder: 'Search for anything...'
+  no_results: 'Sorry there are no results'
+  hero_activated: true
+  image_or_colour: colour
+  hero_size: quarter
+  background_colour: primary
+  dark_background_colour: secondary
+  display_which: heading
+  text_colour: secondary
+  dark_text_colour: primary
+  heading: '{{get.q}}'

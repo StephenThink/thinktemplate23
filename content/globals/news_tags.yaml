@@ -1,0 +1,11 @@
+title: 'News Tags'
+data:
+  hero_activated: true
+  image_or_colour: colour
+  hero_size: quarter
+  background_colour: primary
+  dark_background_colour: secondary
+  display_which: heading
+  text_colour: secondary
+  dark_text_colour: primary
+  heading: 'News Categories'

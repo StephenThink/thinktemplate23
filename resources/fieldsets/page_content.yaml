@@ -1,0 +1,635 @@
+title: 'Page Content'
+fields:
+  -
+    handle: page_content
+    field:
+      collapse: false
+      always_show_set_button: false
+      previews: true
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - underline
+        - strikethrough
+        - unorderedlist
+        - orderedlist
+        - removeformat
+        - quote
+        - superscript
+        - subscript
+        - anchor
+        - horizontalrule
+        - alignleft
+        - aligncenter
+        - alignright
+        - alignjustify
+      save_html: false
+      toolbar_mode: floating
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: true
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: trim
+      display: 'Page Content'
+      type: bard
+      icon: bard
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      sets:
+        main:
+          display: Main
+          instructions: null
+          icon: null
+          sets:
+            full_width_image:
+              display: 'Full Width Image'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: image
+                  field:
+                    mode: list
+                    container: assets
+                    folder: pageContent/fullWidth
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    max_files: 1
+                    display: Image
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                -
+                  handle: heading
+                  field:
+                    input_type: text
+                    antlers: true
+                    display: Heading
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                -
+                  handle: content
+                  field:
+                    restrict: false
+                    automatic_line_breaks: true
+                    automatic_links: false
+                    escape_markup: false
+                    smartypants: false
+                    antlers: false
+                    display: Content
+                    type: markdown
+                    icon: markdown
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                -
+                  handle: text_position
+                  field:
+                    options:
+                      top-left: 'Top Left'
+                      top-center: 'Top Center'
+                      top-right: 'Top Right'
+                      middle-left: 'Middle Left'
+                      middle-center: 'Middle Center'
+                      middle-right: 'Middle Right'
+                      bottom-left: 'Bottom Left'
+                      bottom-center: 'Bottom Center'
+                      bottom-right: 'Bottom Right'
+                    multiple: false
+                    max_items: 1
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: middle-center
+                    display: 'Overall Position'
+                    type: select
+                    icon: select
+                    instructions: 'Where is the text going to be positioned'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    hide_display: false
+                    if_any:
+                      heading: 'not null'
+                      content: 'not null'
+                -
+                  handle: header_position
+                  field:
+                    options:
+                      text-left: Left
+                      text-center: Center
+                      text-right: Right
+                    multiple: false
+                    max_items: 1
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: center
+                    display: 'Header Position'
+                    type: select
+                    icon: select
+                    instructions: 'What text alignment would you like?'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    width: 50
+                    if:
+                      heading: 'not null'
+                    hide_display: false
+                -
+                  handle: content_position
+                  field:
+                    options:
+                      text-left: Left
+                      text-center: Center
+                      text-right: Right
+                    multiple: false
+                    max_items: 1
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: center
+                    display: 'Content Position'
+                    type: select
+                    icon: select
+                    instructions: 'What text alignment would you like?'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    width: 50
+                    if:
+                      content: 'not null'
+                    hide_display: false
+                -
+                  handle: text_width
+                  field:
+                    options:
+                      standard: Standard
+                      w-3/4: 'Three Quarters'
+                      w-full: Full
+                    multiple: false
+                    max_items: 1
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: standard
+                    display: 'Text Width'
+                    type: select
+                    icon: select
+                    instructions: 'How wide do you want your text?'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    width: 50
+                    if_any:
+                      heading: 'not null'
+                      content: 'not null'
+                    hide_display: false
+                -
+                  handle: text_readability
+                  field:
+                    options:
+                      standard: Standard
+                      image: Image
+                      text: Text
+                      gradient: Gradient
+                    multiple: false
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: standard
+                    display: 'Text Readability'
+                    type: select
+                    icon: select
+                    instructions: 'Struggling to see the text, make the picture a little darker or add a darker area round the back of the text.'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    width: 50
+                    if_any:
+                      heading: 'not null'
+                      content: 'not null'
+                -
+                  handle: gradient_direction
+                  field:
+                    options:
+                      bg-gradient-to-r: 'Left to Right'
+                      bg-gradient-to-b: 'Top to Bottom'
+                      bg-gradient-to-l: 'Right to Left'
+                      bg-gradient-to-t: 'Bottom to Top'
+                    multiple: false
+                    max_items: 1
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: bottom
+                    display: 'Gradient Direction'
+                    type: select
+                    icon: select
+                    instructions: 'Which direction would you like the <strong>Darker</strong> going to <strong>Transparent</strong>'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    width: 50
+                    if:
+                      text_readability: 'equals gradient'
+                    hide_display: false
+                -
+                  handle: gradient_colour
+                  field:
+                    options:
+                      from-black: Black
+                      from-white: White
+                      from-primary: Primary
+                      from-secondary: Secondary
+                    multiple: false
+                    max_items: 1
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: black
+                    display: 'Gradient Colour'
+                    type: select
+                    icon: select
+                    instructions: 'Which direction would you like the <strong>Darker</strong> going to <strong>Transparent</strong>'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                    width: 50
+                    if:
+                      text_readability: 'equals gradient'
+                    hide_display: false
+            text_and_image:
+              display: 'Text and Image'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: header
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Header
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: content
+                  field:
+                    restrict: false
+                    automatic_line_breaks: true
+                    automatic_links: false
+                    escape_markup: false
+                    smartypants: false
+                    antlers: false
+                    display: Content
+                    type: markdown
+                    icon: markdown
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: image
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: pageContent/halfImages
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    max_files: 1
+                    display: Image
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: image_position
+                  field:
+                    options:
+                      left: Left
+                      right: Right
+                    inline: true
+                    cast_booleans: false
+                    default: left
+                    display: 'Image Position'
+                    type: radio
+                    icon: radio
+                    instructions: 'Which side would you like the image being displayed, this way you could alternate between the image locations'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    width: 50
+                    hide_display: false
+                -
+                  handle: safe_truncate
+                  field:
+                    display: 'Safe Truncate'
+                    type: integer
+                    icon: integer
+                    instructions: 'This will <strong>override the default</strong> value set in the site admin globals if a value is placed here, <strong>If in doubt leave blank</strong>'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    width: 50
+            quote:
+              display: Quote
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: quote
+                  field:
+                    collapse: false
+                    always_show_set_button: false
+                    previews: true
+                    buttons:
+                      - bold
+                      - italic
+                      - unorderedlist
+                      - orderedlist
+                      - removeformat
+                      - quote
+                      - anchor
+                      - image
+                      - table
+                    save_html: true
+                    toolbar_mode: floating
+                    link_noopener: true
+                    link_noreferrer: true
+                    target_blank: true
+                    reading_time: false
+                    fullscreen: true
+                    allow_source: true
+                    enable_input_rules: true
+                    enable_paste_rules: true
+                    antlers: false
+                    remove_empty_nodes: false
+                    display: Quote
+                    type: bard
+                    icon: bard
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: author
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: Author
+                    type: text
+                    icon: text
+                    instructions: 'The Author of the quote'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+            gallery:
+              display: Gallery
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: gallery_images
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: pageContent/gallery
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    display: 'Gallery Images'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: phone_columns_old
+                  field:
+                    min: 1
+                    max: 4
+                    step: 1
+                    default: 1
+                    display: 'Phone Columns'
+                    type: range
+                    icon: range
+                    instructions: 'How many images to display side by side on a phone?'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    width: 33
+                    hide_display: false
+                -
+                  handle: tablet_columns_old
+                  field:
+                    min: 1
+                    max: 6
+                    step: 1
+                    default: 1
+                    display: 'Tablets Columns'
+                    type: range
+                    icon: range
+                    instructions: 'How many images to display side by side on a tablet?'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    width: 33
+                    hide_display: false
+                -
+                  handle: desktop_columns_old
+                  field:
+                    min: 1
+                    max: 10
+                    step: 1
+                    default: 1
+                    display: 'Desktop Columns'
+                    type: range
+                    icon: range
+                    instructions: 'How many images to display side by side on a desktop?'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    width: 33
+                    hide_display: false
+                -
+                  handle: phone_columns
+                  field:
+                    options:
+                      grid-cols-1: '1'
+                      grid-cols-2: '2'
+                      grid-cols-3: '3'
+                      grid-cols-4: '4'
+                    taggable: false
+                    push_tags: false
+                    multiple: false
+                    clearable: false
+                    searchable: true
+                    cast_booleans: false
+                    type: select
+                    display: 'Phone Columns'
+                    icon: select
+                    instructions: 'How many images to display side by side on a phone?'
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: tablet_columns
+                  field:
+                    options:
+                      grid-cols-1: '1'
+                      grid-cols-2: '2'
+                      grid-cols-3: '3'
+                      grid-cols-4: '4'
+                      grid-cols-5: '5'
+                      grid-cols-6: '6'
+                    taggable: false
+                    push_tags: false
+                    multiple: false
+                    clearable: false
+                    searchable: true
+                    cast_booleans: false
+                    type: select
+                    display: 'Tablet Columns'
+                    icon: select
+                    instructions: 'How many images to display side by side on a tablet?'
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                -
+                  handle: tablet_columns
+                  field:
+                    options:
+                      grid-cols-1: '1'
+                      grid-cols-2: '2'
+                      grid-cols-3: '3'
+                      grid-cols-4: '4'
+                      grid-cols-5: '5'
+                      grid-cols-6: '6'
+                      grid-cols-7: '7'
+                      grid-cols-8: '8'
+
+                    taggable: false
+                    push_tags: false
+                    multiple: false
+                    clearable: false
+                    searchable: true
+                    cast_booleans: false
+                    type: select
+                    display: 'Desktop Columns'
+                    icon: select
+                    instructions: 'How many images to display side by side on a computer?'
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+            call_to_action:
+              display: 'Call To Action'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: call_to_action
+            slider:
+              display: Slider
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: slider_images
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: pageContent/slider
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    display: 'Slider Images'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+            flip_cards:
+              display: 'Flip Cards'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: flipping_card
+            fading_image:
+              display: 'Fading Image'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: fading_image
+            reduce_image:
+              display: 'Reduce Image'
+              instructions: null
+              icon: null
+              fields:
+                -
+                  import: reduce_image_card
+      smart_typography: false
+      inline: false
+      instructions: 'This is what populates the page, if you want to add predefined **sets** then click on the **Plus** to add them.'
+      hide_display: false

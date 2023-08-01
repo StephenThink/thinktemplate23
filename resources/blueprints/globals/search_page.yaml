@@ -1,0 +1,69 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: show_label
+        field:
+          default: true
+          display: 'Show Label'
+          type: toggle
+          icon: toggle
+          instructions: 'Do you want there to be a search label or just an icon?'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: label
+        field:
+          input_type: text
+          antlers: false
+          default: Search
+          display: Label
+          type: text
+          icon: text
+          instructions: 'What do you want the wording to be on the site?'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+          if:
+            show_label: 'equals true'
+      -
+        handle: placeholder
+        field:
+          input_type: text
+          antlers: false
+          default: 'Search for anything...'
+          display: Placeholder
+          type: text
+          icon: text
+          instructions: 'What do you want the Search bar to say before people search for something?'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+      -
+        handle: no_results
+        field:
+          input_type: text
+          antlers: false
+          default: 'Sorry there are No results for'
+          display: 'No Results'
+          type: text
+          icon: text
+          instructions: 'What to say if there are no results'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+          validate:
+            - required
+  content:
+    display: Content
+    fields:
+      -
+        import: hero
+      -
+        import: page_content

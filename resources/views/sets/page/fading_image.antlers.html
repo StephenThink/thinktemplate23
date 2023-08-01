@@ -1,0 +1,15 @@
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-section lg:my-section-lg">
+{{  fading_image }}
+<card class="relative h-[300px] w-[300px] ring-2 ring-yellow-400 ring-offset-2">
+    <div id="back" class="absolute flex h-[300px] w-[300px] flex-col justify-between bg-yellow-400 p-2">
+
+        <div class="prose h-full">{{ content | raw | bard_html | safe_truncate:300:"..." }}</div>
+    </div>
+    <div id="front" class="absolute h-[300px] w-[300px] transition-opacity duration-[2s] hover:opacity-0">
+        <h2 id="image-title" class="absolute bottom-0 w-full bg-black bg-opacity-50 p-2 text-center text-white">{{ image_title }}</h2>
+        <img id="card-image" src="{{ glide:image preset='fading_image' }}" alt="{{  image.alt }}" />
+    </div>
+</card>
+    {{  /fading_image }}
+
+</div>

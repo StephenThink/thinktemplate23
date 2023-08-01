@@ -1,0 +1,65 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "sizes.css";
+@import "flipCard.css";
+@import "scrollBar.css";
+@import "aos.css";
+
+/* This is all you. */
+/* This is all you. */
+[x-cloak] {
+    display: none !important;
+}
+
+
+/* Positioning of Text */
+/* This is mainly found in the full_width image in the page_content fieldset */
+
+.top-left {
+    @apply top-5 left-5;
+}
+
+.top-center {
+    @apply top-4 left-1/2 -translate-x-1/2;
+}
+
+.top-right {
+    @apply top-5 right-5;
+}
+
+.middle-left {
+    @apply top-1/2 left-5 -translate-y-1/2;
+}
+
+.middle-center {
+    @apply top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+.middle-right {
+    @apply top-1/2 right-5 -translate-y-1/2;
+}
+
+.bottom-left {
+    @apply bottom-5 left-5;
+}
+
+.bottom-center {
+    @apply bottom-4 left-1/2 -translate-x-1/2;
+}
+
+.bottom-right {
+    @apply bottom-5 right-5;
+}
+
+
+
+
+.quote-block {
+    @apply my-inner lg:my-inner-lg pl-8 text-xl font-bold text-center
+}
+
+input, textarea {
+    @apply bg-gray-200/10 lg:rounded-xl p-4 appearance-none border border-secondary focus:outline-none focus:ring-2 focus:ring-primary text-primary placeholder-secondary;
+}
+

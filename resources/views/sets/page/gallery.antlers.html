@@ -1,0 +1,9 @@
+<div class="my-section lg:my-section-lg">
+<div class="grid gap-4 {{ phone_columns }} {{ tablets_columns }} {{ desktop_columns }}
+ ">
+    {{  glide :src="gallery_images" preset='gallery_image' }}
+    <img src="{{ url }}" alt="{{ alt }}">
+        {{  /glide }}
+</div>
+</div>
+

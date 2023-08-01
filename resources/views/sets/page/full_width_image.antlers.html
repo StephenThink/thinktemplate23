@@ -1,0 +1,41 @@
+<div class="relative my-section lg:my-section-lg ">
+    {{#      Text readability either add contrast to the image to make it appear darker or add a background to the text #}}
+    {{  if text_readability == 'image' }}
+        <img src="{{ glide:image preset='full-image' contrast='-25'}}" alt="{{ image.alt }}" loading="lazy"  >
+    {{  elseif text_readability == 'gradient'}}
+        <img src="{{ glide:image preset='full-image' }}" alt="{{ image.alt }}" loading="lazy" >
+        <div class="absolute w-full h-full top-0 left-0
+        {{ gradient_direction }} {{ gradient_colour }}
+        "></div>
+    {{ else }}
+        <img src="{{ glide:image preset='full_image' }}" alt="{{ image.alt }}" loading="lazy">
+    {{ /if }}
+    {{#      /Text readability #}}
+
+    <div class="absolute {{ text_position }} {{ text_width }}
+
+        {{# Text background settings #}}
+        {{  if text_readability == 'text' }}
+                    bg-black/50 p-5 rounded-lg
+                {{ /if }}
+        {{# /Text background settings #}}
+">
+    {{ if heading }}
+        <h2 class="text-white {{ header_position }}">{{ heading }}</h2>
+    {{ /if }}
+
+    {{ if content }}
+        <div class="hidden lg:block prose lg:prose-xl text-white {{ content_position }}
+            {{ if text_width == 'w-full' }} max-w-none {{ /if }}
+        ">{{ content }}</div>
+        {{ /if }}
+    </div>
+
+
+</div>
+{{# Mobile friendly that displays this underneath and hides it on the full image.  This fixes any issue if the text overflows. #}}
+<div class="lg:hidden mb-section container">
+    {{ if content }}
+        <div class=" prose prose-sm text-black max-w-none {{ content_position }}">{{ content }}</div>
+    {{ /if }}
+</div>

@@ -1,0 +1,311 @@
+title: Hero
+fields:
+  -
+    handle: hero_section
+    field:
+      display: 'Hero Section'
+      type: section
+      icon: section
+      instructions: 'This is appears below the navbar, this is the first thing people see when the page loads.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: hero_activated
+    field:
+      default: true
+      display: 'Hero Activated'
+      type: toggle
+      icon: toggle
+      instructions: 'Do you want a hero?'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      width: 33
+  -
+    handle: change_background
+    field:
+      mode: toggle
+      input_label: 'Make Changes...'
+      display: 'Change Background'
+      type: revealer
+      icon: revealer
+      instructions: 'Want to change the Image or Colour?'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      if:
+        hero_activated: 'equals true'
+      width: 33
+      hide_display: false
+  -
+    handle: change_text
+    field:
+      mode: toggle
+      input_label: 'Make Changes...'
+      display: 'Change Text'
+      type: revealer
+      icon: revealer
+      instructions: 'Want to change the text?'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      if:
+        hero_activated: 'equals true'
+      width: 33
+      hide_display: false
+  -
+    handle: image_or_colour
+    field:
+      options:
+        image: Image
+        colour: Colour
+      inline: true
+      cast_booleans: false
+      default: colour
+      display: 'Image or Colour'
+      type: radio
+      icon: radio
+      instructions: 'Would you like to display an image or just a colour?'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      if:
+        change_background: 'equals true'
+  -
+    handle: hero_size
+    field:
+      options:
+        h-screen: Full
+        h-two-thirds: 'Two Thirds'
+        h-three-quarters: 'Three Quarters'
+        h-half: Half
+        h-third: Third
+        h-quarter: Quarter
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: h-screen
+      display: 'Hero Size'
+      type: select
+      icon: select
+      instructions: 'How big would you like your hero to be on the screen?'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      if:
+        change_background: 'equals true'
+      hide_display: false
+  -
+    handle: background_colour
+    field:
+      options:
+        bg-primary: Primary
+        bg-secondary: Secondary
+        bg-white: White
+        bg-black: Black
+        bg-pink-500: Pink
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: bg-primary
+      display: 'Background Colour'
+      type: select
+      icon: select
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      if:
+        change_background: 'equals true'
+        image_or_colour: 'equals colour'
+      hide_display: false
+  -
+    handle: dark_background_colour
+    field:
+      options:
+        'dark:bg-primary': Primary
+        'dark:bg-secondary': Secondary
+        'dark:bg-white': White
+        'dark:bg-black': Black
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: secondary
+      display: 'Dark Background Colour'
+      type: select
+      icon: select
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      if:
+        image_or_colour: 'equals colour'
+        change_background: 'equals true'
+      hide_display: false
+  -
+    handle: image
+    field:
+      mode: grid
+      container: assets
+      folder: heroes
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      max_files: 1
+      display: Image
+      type: assets
+      icon: assets
+      instructions: 'This is the image that is displayed on the hero section'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      if:
+        image_or_colour: 'equals image'
+        change_background: 'equals true'
+  -
+    handle: display_which
+    field:
+      options:
+        heading: Headings
+        content: Content
+      inline: true
+      cast_booleans: false
+      default: heading
+      display: 'Display Which'
+      type: radio
+      icon: radio
+      instructions: 'Would you like a Big Heading, or a Block of Content'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      if:
+        change_text: 'equals true'
+  -
+    handle: text_colour
+    field:
+      options:
+        text-primary: Primary
+        text-secondary: Secondary
+        text-white: White
+        text-black: Black
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: secondary
+      display: 'Text Colour'
+      type: select
+      icon: select
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      if:
+        change_text: 'equals true'
+      hide_display: false
+  -
+    handle: dark_text_colour
+    field:
+      options:
+        'dark:text-primary': Primary
+        'dark:text-secondary': Secondary
+        'dark:text-white': White
+        'dark:text-black': Black
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: primary
+      display: 'Dark Text Colour'
+      type: select
+      icon: select
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      if:
+        change_text: 'equals true'
+      hide_display: false
+  -
+    handle: heading
+    field:
+      input_type: text
+      antlers: false
+      default: 'Hero Heading'
+      display: Heading
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      if:
+        display_which: 'equals heading'
+        change_text: 'equals true'
+  -
+    handle: sub_heading
+    field:
+      input_type: text
+      antlers: false
+      display: 'Sub Heading'
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      if:
+        display_which: 'equals heading'
+        change_text: 'equals true'
+  -
+    handle: introduction
+    field:
+      restrict: false
+      automatic_line_breaks: true
+      automatic_links: false
+      escape_markup: false
+      smartypants: false
+      antlers: false
+      display: Introduction
+      type: markdown
+      icon: markdown
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      if:
+        display_which: 'equals content'
+        change_text: 'equals true'

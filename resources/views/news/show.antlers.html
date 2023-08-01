@@ -1,0 +1,26 @@
+<article class="container my-section lg:my-section-lg relative">
+    <header class="max-w-3xl mx-auto">
+        {{ tags }}
+            <a href="{{ url }}" class="px-3 py-1 text-gray-100 font-bold bg-yellow-500 transition hover:bg-orange-500 rounded-full inline-block mb-8">{{ title }}</a>
+        {{ /tags }}
+
+        <h1 class="text-5xl md:text-6xl lg:text-7xl tracking-tight text-secondary font-bold">{{ title }}</h1>
+        <div class="flex items-center mt-12">
+            {{ if author:avatar }}
+                <img class="rounded-full h-16 w-16" src="{{ glide:author:avatar preset='staff_image' }}" alt="{{ author:avatar:alt }}">
+            {{ /if }}
+            <div class="{{ author:avatar ? 'ml-6' : '' }}">
+                <div>{{ date }}</div>
+                <div>By <a href="" class="font-bold text-secondary">{{ author:name }}</a></div>
+            </div>
+        </div>
+    </header>
+
+    <figure class="mt-12">
+        <img class="rotate-2" src="{{ glide:featured_image preset='featured_image' }}" alt="{{ featured_image:alt }}">
+    </figure>
+
+    <section class="max-w-3xl mx-auto mt-12 ">
+        {{ partial:partials/page_content }}
+    </section>
+</article>

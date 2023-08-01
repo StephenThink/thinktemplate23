@@ -1,0 +1,38 @@
+<nav class="w-full px-10 bg-secondary dark:bg-primary text-primary dark:text-secondary">
+    <div class="flex items-center justify-between">
+        <a href="/" id="company-logo" class="font-bold text-3xl text-primary dark:text-secondary p-2 antialiased">{{ company:name }}</a>
+    <div class="flex gap-4 items-center">
+        <ul  class="hidden lg:flex items-center space-x-4 ml-6">
+            {{ nav:main_nav }}
+                {{ if ! children }}
+                    <li id="nav-items"><a href="{{ url }}" class="p-2 relative text-primary dark:text-secondary transition">{{ title }}</a></li>
+                {{ else }}
+                    <li class="group">
+                        <button class="p-2 relative flex items-center transition group-hover:text-white">
+                            <span>{{ title }}</span>
+                            <svg class="ml-2" height="6" width="6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 6"><path d="M5.867.75A.5.5 0 005.433.5H.567a.5.5 0 00-.427.75l2.433 4.018a.5.5 0 00.855 0L5.86 1.25a.5.5 0 00.007-.5z" fill="currentColor"/></svg>
+                        </button>
+                        <div class="absolute rounded-lg py-4 -mt-2 px-2 bg-gray-200 hidden group-hover:block">
+                            <ul class="flex-col">
+                                {{ children }}
+                                    <li><a href="{{ url }}" class="py-2 px-4 block transition hover:bg-gray-300 rounded text-secondary dark:text-primary">{{ title }}</a></li>
+                                {{ /children }}
+                            </ul>
+                        </div>
+                    </li>
+                {{ /if }}
+            {{ /nav:main_nav }}
+        </ul>
+        <div id="magnifying-glass" class="flex items-center space-x-4 px-2">
+
+            {{ partial:partials/searchbar }}
+
+            <button  type="button" class="lg:hidden p-2 text-white" @click="mobileNavOpen = ! mobileNavOpen">
+                <svg x-show="! mobileNavOpen" xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 21 21"><g fill="currentColor" transform="scale(.875)"><rect x=".5" y="2.5" width="23" height="3" rx="1"/><rect x=".5" y="10.5" width="23" height="3" rx="1"/><rect x=".5" y="18.5" width="23" height="3" rx="1"/></g></svg>
+                <svg x-show="mobileNavOpen" x-cloak="true" xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 21 21"><g transform="scale(.875)"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M.75 23.249l22.5-22.5M23.25 23.249L.75.749"/></g></svg>
+            </button>
+        </div>
+            </div>
+    </div>
+
+</nav>

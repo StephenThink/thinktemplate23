@@ -1,0 +1,281 @@
+title: 'Flipping Card'
+fields:
+  -
+    handle: flip_cards
+    field:
+      collapse: false
+      previews: true
+      sets:
+        main:
+          display: Main
+          instructions: null
+          icon: null
+          sets:
+            card:
+              display: Card
+              instructions: null
+              icon: null
+              fields:
+                -
+                  handle: front_of_the_card
+                  field:
+                    display: 'Front of the Card'
+                    type: section
+                    icon: section
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: show_front_heading
+                  field:
+                    default: true
+                    display: 'Show Front Heading'
+                    type: toggle
+                    icon: toggle
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                -
+                  handle: show_front_content
+                  field:
+                    default: true
+                    display: 'Show Front Content'
+                    type: toggle
+                    icon: toggle
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      front_content: 'not empty'
+                -
+                  handle: show_front_image
+                  field:
+                    default: true
+                    display: 'Show Front Image'
+                    type: toggle
+                    icon: toggle
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      front_image: 'not empty'
+                -
+                  handle: front_heading
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Front Heading'
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      show_front_heading: 'equals true'
+                -
+                  handle: front_content
+                  field:
+                    restrict: false
+                    automatic_line_breaks: true
+                    automatic_links: false
+                    escape_markup: false
+                    smartypants: false
+                    antlers: false
+                    display: 'Front Content'
+                    type: markdown
+                    icon: markdown
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      show_front_content: 'equals true'
+                -
+                  handle: front_text_position
+                  field:
+                    options:
+                      justify-between: 'Top and Bottom'
+                      'justify-center gap-2 items-center': Center
+                    multiple: false
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: center
+                    display: 'Front Text Position'
+                    type: select
+                    icon: select
+                    instructions: 'What position do you want the text to be?'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if_any:
+                      front_heading: 'not empty'
+                      front_content: 'not empty'
+                    hide_display: false
+                -
+                  handle: front_image
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: pageContent/flipCards
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    max_files: 1
+                    display: 'Front Image'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      show_front_image: 'equals true'
+                -
+                  handle: back_of_the_card
+                  field:
+                    display: 'Back of the Card'
+                    type: section
+                    icon: section
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: false
+                -
+                  handle: show_back_heading
+                  field:
+                    default: true
+                    display: 'Show Back Heading'
+                    type: toggle
+                    icon: toggle
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      back_heading: 'not empty'
+                -
+                  handle: show_back_content
+                  field:
+                    default: true
+                    display: 'Show Back Content'
+                    type: toggle
+                    icon: toggle
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      back_content: 'not empty'
+                -
+                  handle: show_back_image
+                  field:
+                    default: true
+                    display: 'Show Back Image'
+                    type: toggle
+                    icon: toggle
+                    width: 33
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      back_image: 'not empty'
+                -
+                  handle: back_text_position
+                  field:
+                    options:
+                      justify-between: 'Top and Bottom'
+                      'justify-center gap-2 items-center': Center
+                    multiple: false
+                    clearable: false
+                    searchable: true
+                    taggable: false
+                    push_tags: false
+                    cast_booleans: false
+                    default: topBottom
+                    display: 'Back Text Position'
+                    type: select
+                    icon: select
+                    instructions: 'What position do you want the text to be?'
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if_any:
+                      back_heading: 'not empty'
+                      back_content: 'not empty'
+                    hide_display: false
+                -
+                  handle: back_heading
+                  field:
+                    input_type: text
+                    antlers: false
+                    display: 'Back Heading'
+                    type: text
+                    icon: text
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      show_back_heading: 'equals true'
+                -
+                  handle: back_content
+                  field:
+                    restrict: false
+                    automatic_line_breaks: true
+                    automatic_links: false
+                    escape_markup: false
+                    smartypants: false
+                    antlers: false
+                    display: 'Back Content'
+                    type: markdown
+                    icon: markdown
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      show_back_content: 'equals true'
+                -
+                  handle: back_image
+                  field:
+                    mode: grid
+                    container: assets
+                    folder: pageContent/flipCards
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    max_files: 1
+                    display: 'Back Image'
+                    type: assets
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    always_save: true
+                    if:
+                      show_back_image: 'equals true'
+      display: 'Flip Cards'
+      type: replicator
+      icon: replicator
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      fullscreen: true
+      hide_display: false

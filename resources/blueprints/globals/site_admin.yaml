@@ -1,0 +1,192 @@
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: analytics_active
+        field:
+          default: false
+          display: 'Analytics Active'
+          type: toggle
+          icon: toggle
+          instructions: 'Has this been made active on google?'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: google_analytics
+        field:
+          mode: keyed
+          keys:
+            local: Local
+            staging: Staging
+            production: Production
+          display: 'Google Analytics'
+          type: array
+          icon: array
+          instructions: 'This contains all the information for Google Analytics'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+  icons:
+    display: Icons
+    fields:
+      -
+        handle: by32
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: By32
+          type: assets
+          icon: assets
+          instructions: 'This should be a picture 32 x 32'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          folder: site/icons
+      -
+        handle: by192
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: By192
+          type: assets
+          icon: assets
+          instructions: 'This should be a image 192 x 192'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          folder: site/icons
+      -
+        handle: for_apple_devices
+        field:
+          display: 'For Apple Devices'
+          type: section
+          icon: section
+          instructions: 'These are for Apple Devices'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: apple_touch
+        field:
+          mode: grid
+          container: assets
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Apple Touch'
+          type: assets
+          icon: assets
+          instructions: 'This will display on an apple device, when stored on the home screen, should only be a PNG file'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+          validate:
+            - image
+          folder: site/icons
+  content_options:
+    display: 'Content Options'
+    fields:
+      -
+        handle: safe_truncating
+        field:
+          mode: keyed
+          keys:
+            two-third-content: 'Two Third Content'
+            full-width-images: 'Full Width Images'
+          display: 'Safe Truncating'
+          type: array
+          icon: array
+          instructions: 'When Safe Truncating is needed what default limit would you like to apply to different areas.'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+  footer:
+    display: Footer
+    fields:
+      -
+        handle: display_what
+        field:
+          options:
+            text: Text
+            logo: Logo
+            both: Both
+          multiple: false
+          max_items: 1
+          clearable: false
+          searchable: true
+          taggable: false
+          push_tags: false
+          cast_booleans: false
+          default: text
+          display: 'Display What'
+          type: select
+          icon: select
+          instructions: 'What would you like to display on the footer'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+      -
+        handle: company_logo
+        field:
+          mode: grid
+          container: assets
+          folder: site/icons
+          restrict: false
+          allow_uploads: true
+          show_filename: true
+          max_files: 1
+          display: 'Company Logo'
+          type: assets
+          icon: assets
+          instructions: 'The created <strong>Companies</strong> Logo'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: company_name
+        field:
+          input_type: text
+          antlers: false
+          default: 'Think!Creative Uk LTD'
+          display: 'Company Name'
+          type: text
+          icon: text
+          instructions: 'Created Companies Name'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: false
+      -
+        handle: company_link
+        field:
+          display: 'Company Link'
+          type: link
+          icon: link
+          instructions: 'External Link to the Companies Website'
+          listable: hidden
+          instructions_position: above
+          visibility: visible
+          always_save: true
+          if_any:
+            company_logo: 'not null'
+            company_name: 'not null'

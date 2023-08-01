@@ -1,0 +1,46 @@
+<footer class="bg-secondary text-primary w-full p-inner">
+<div class="container">
+    <div class="grid grid-cols-3 justify-items-center" >
+        <div class="flex flex-col">{{ company:name }}</div>
+        <div class="flex flex-col">
+            <h3>Navigation</h3>
+                <ul>
+                    {{ nav:collection:pages include_home="true"}}
+                        <li><a href="{{ url }}" class="relative text-primary dark:text-secondary transition">{{ title }}</a></li>
+                    {{ /nav:collection:pages }}
+                </ul>
+        </div>
+        <div class="flex flex-col">
+            <h3>Socials</h3>
+            {{ partial:partials/socials }}
+
+
+
+        </div>
+    </div>
+    <div class="flex pt-inner justify-between items-end text-sm">
+        <div >&copy; {{  current_date | format="Y" }} {{ company:name }} </div>
+        <div class="flex ">
+    <ul class="flex gap-2">
+    {{ nav:legal_nav }}
+            <li><a href="{{ url }}" class="relative text-primary dark:text-secondary transition">{{ title }}</a></li>
+    {{ /nav:legal_nav }}
+    </ul>
+        </div>
+        <div class="flex">
+    {{ if site_admin:display_what == "text" }}
+            <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
+                    Created by {{ site_admin:company_name }}</a>
+                {{ elseif site_admin:display_what == "logo" }}
+        <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
+            {{ svg :src="site_admin:company_logo" class="text-think-yellow" }}
+                    Created this site</a>
+        {{ else }}
+        <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
+            {{ svg :src="site_admin:company_logo" class="text-think-yellow" }}
+                    Created by {{ site_admin:company_name }}</a>
+        {{ /if }}
+        </div>
+    </div>
+</div>
+</footer>

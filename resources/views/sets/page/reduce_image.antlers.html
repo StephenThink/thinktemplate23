@@ -1,0 +1,16 @@
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-section lg:my-section-lg">
+{{  reduce_image }}
+
+<div id="reduce-image">
+    <div class="card relative w-[300px] h-[600px] m-4 overflow-hidden bg-black transition-shadow transition-transform hover:shadow-lg group rounded-xl">
+        <div class="w-full h-1/2 transition-[0.3s] group-hover:h-[15%]"><img src="{{ glide:image preset='reducing_image' }}" alt="{{ image.alt }}"></div>
+        <div class="relative h-1/2 p-4 bg-white transition-[0.3s] group-hover:h-[85%]">
+            <span class="bg-primary text-secondary h-8 w-full absolute -top-8 left-0 flex items-center justify-center ">{{ tag }}</span>
+            <div class="overscroll-contain overflow-y-auto group-hover:h-full">
+            {{ content }}
+            </div>
+        </div>
+    </div>
+</div>
+    {{  /reduce_image }}
+</div>

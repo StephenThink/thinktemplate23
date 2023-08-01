@@ -1,0 +1,36 @@
+<div class="rounded-xl h-[500px] block bg-gray-600/10 group flex flex-col hover:scale-105 transition duration-[400ms] ease-in-out">
+    <a href="{{ url }}" class="relative overflow-hidden rounded-t-xl">
+        <img class="object-cover transition duration-[400ms] ease-in-out scale-110 group-hover:scale-100 w-full h-60" src="{{ glide:featured_image preset="news_image" }}" alt="{{ feature_image.alt }}">
+        <div class="absolute opacity-0 transition duration-[400ms] ease-in-out group-hover:opacity-75 z-20 inset-0 mix-blend-overlay object-cover w-full h-60 bg-gradient-to-br from-green-800 to-red-500"></div>
+    </a>
+    <div class="px-6 py-8 flex flex-col justify-between flex-1">
+        <h3 class="font-bold text-2xl text-secondary">
+            <a href="{{ url }}" class="transition hover:text-primary">{{ title }}</a>
+        </h3>
+        {{ if ! hide_author }}
+            <div class="flex items-end justify-between">
+                <div>
+                    <p>{{ date }}</p>
+                    <p class="text-sm">By <a href="" class="text-secondary hover:text-primary">{{ author:name }}</a></p>
+                </div>
+
+                {{ if ! hide_tag }}
+                    {{ tags }}
+                        <a href="{{ url }}" class="px-3 py-1 text-gray-100 font-bold bg-primary transition hover:bg-orange-500 rounded-full text-sm">{{ title }}</a>
+                    {{ /tags }}
+                {{ /if }}
+            </div>
+        {{ else }}
+
+                <div class="flex items-end justify-between">
+                    <div>
+                        <p class="text-sm text-secondary">{{ content }}</p>
+                    </div>
+
+
+                </div>
+
+            {{ /if }}
+
+    </div>
+</div>

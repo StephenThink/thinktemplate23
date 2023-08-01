@@ -1,0 +1,30 @@
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-section lg:my-section-lg">
+
+
+    {{ flip_cards }}
+<section x-data="flip_card" class="card w-full md:w-[300px] h-[400px] group" @click="toggle">
+<div class="card__inner" x-bind:class="flipped ? 'is-flipped' : ''">
+<div class="card__face card__face--front bg-gradient-to-br from-primary to-secondary">
+    {{ if show_front_image }}<img src="{{ glide:front_image preset="flip_card_image" }}" alt="{{ front_image.alt }}" class="object-cover transition transform-gpu duration-[200ms] ease-in-out scale-110 group-hover:scale-100"/>{{ /if  }}
+
+    <div class="card__content text-white p-2 flex flex-col {{ front_text_position }}">
+    {{ if show_front_heading }} <h2>{{ front_heading }}</h2>{{ /if  }}
+        {{ if show_front_content }}{{ front_content | markdown }}{{ /if  }}
+
+    </div>
+</div>
+<div class="card__face card__face--back bg-gradient-to-br from-secondary to-primary">
+    {{ if show_back_image }}<img src="{{ glide:back_image preset="flip_card_image" }}" alt="{{ back_image.alt }}" class="object-cover transition transform-gpu duration-[200ms] ease-in-out scale-110 group-hover:scale-100"
+                                                               />{{ /if  }}
+    <div class="card__content text-white p-2 flex flex-col {{ back_text_position }}">
+       {{ if show_back_heading }} <h2>{{ back_heading }}</h2>{{ /if  }}
+       {{ if show_back_content }} {{ back_content | markdown }}{{ /if  }}
+
+    </div>
+</div>
+</div>
+</section>
+
+
+    {{ /flip_cards }}
+</div>

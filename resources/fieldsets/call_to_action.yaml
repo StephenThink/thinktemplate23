@@ -1,0 +1,129 @@
+title: 'Call To Action'
+fields:
+  -
+    handle: call_to_action
+    field:
+      collapse: false
+      always_show_set_button: false
+      previews: true
+      buttons:
+        - h2
+        - h3
+        - bold
+        - italic
+        - removeformat
+        - quote
+        - anchor
+        - image
+      save_html: false
+      toolbar_mode: fixed
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      reading_time: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      antlers: false
+      remove_empty_nodes: false
+      display: 'Call To Action'
+      type: bard
+      icon: bard
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+  -
+    handle: alignment
+    field:
+      options:
+        justify-start: Left
+        justify-center: Center
+        justify-end: Right
+      inline: true
+      cast_booleans: false
+      default: center
+      display: Alignment
+      type: radio
+      icon: radio
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: false
+      width: 50
+      hide_display: false
+  -
+    handle: box_width
+    field:
+      options:
+        w-full: 'Full Screen'
+        container: Container
+        w-3/4: 'Three Quarters'
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: container
+      display: 'Box Width'
+      type: select
+      icon: select
+      instructions: 'How big do you want the Call to Action to be?'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      hide_display: false
+  -
+    handle: background_colour
+    field:
+      options:
+        bg-primary: Primary
+        bg-secondary: Secondary
+        bg-white: White
+        bg-black: Black
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: primary
+      display: 'Background Colour'
+      type: select
+      icon: select
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      hide_display: false
+  -
+    handle: dark_background_colour
+    field:
+      options:
+        'dark:bg-primary': Primary
+        'dark:bg-secondary': Secondary
+        'dark:bg-white': White
+        'dark:bg-black': Black
+      multiple: false
+      max_items: 1
+      clearable: false
+      searchable: true
+      taggable: false
+      push_tags: false
+      cast_booleans: false
+      default: secondary
+      display: 'Dark Background Colour'
+      type: select
+      icon: select
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      always_save: true
+      hide_display: false
