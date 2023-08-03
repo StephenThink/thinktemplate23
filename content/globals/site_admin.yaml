@@ -1,10 +1,11 @@
 title: 'Site Admin'
 data:
+  show_cookie_dialog: false
   analytics_active: false
   google_analytics:
-    local: localga
-    staging: stagega
-    production: prodga
+    local: localga1
+    staging: stagega1
+    production: prodga1
   by32: site/icons/cropped-site-icon-2-32x32.png
   by192: site/icons/cropped-site-icon-2-192x192.png
   apple_touch: site/icons/cropped-site-icon-2-180x180.png

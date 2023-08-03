@@ -7,18 +7,15 @@ export_paths:
   - config/statamic/editions.php
   - config/statamic/search.php
   - config/session.php
-  - config/sitemapamic.php
   - config/statamic-clear-assets.php
   - resources
   - public/assets
+  - routes/web.php
   - package.json
   - postcss.config.js
   - tailwind.config.js
   - vite.config.js
   - README.md
 dependencies:
-  insight-media/statamic-pdf-thumbnailer: ^1.0
-  mitydigital/sitemapamic: ^2.3
-  swiftmade/statamic-clear-assets: ^2.0
   teamnovu/statamic-images-missing-alt: ^1.0
   webographen/statamic-widget-continue-editing: ^1.1

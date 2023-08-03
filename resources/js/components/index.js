@@ -10,3 +10,7 @@ export { slideInRight, slideInLeft, appearFromBottom, appearFromLeft, appearFrom
 
 // Export the 'barbaJs' component from the 'barbaJs.js' file.
 export { default as barbaJs } from './barbaJs'
+
+
+// Export the 'cookie' component from the 'cookie.js' file.
+export { default as cookie } from './cookie'

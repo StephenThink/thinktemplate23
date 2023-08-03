@@ -5,7 +5,7 @@
     </a>
     <div class="px-6 py-8 flex flex-col justify-between flex-1">
         <h3 class="font-bold text-2xl text-secondary">
-            <a href="{{ url }}" class="transition hover:text-primary">{{ title }}</a>
+            <a href="{{ url }}" class="transition hover:text-primary" aria-label="{{ title }}">{{ title }}</a>
         </h3>
         {{ if ! hide_author }}
             <div class="flex items-end justify-between">
@@ -16,7 +16,7 @@
 
                 {{ if ! hide_tag }}
                     {{ tags }}
-                        <a href="{{ url }}" class="px-3 py-1 text-gray-100 font-bold bg-primary transition hover:bg-orange-500 rounded-full text-sm">{{ title }}</a>
+                        <a href="{{ url }}" class="px-3 py-1 text-gray-100 font-bold bg-primary transition hover:bg-orange-500 rounded-full text-sm" aria-label="{{ title }}">{{ title }}</a>
                     {{ /tags }}
                 {{ /if }}
             </div>

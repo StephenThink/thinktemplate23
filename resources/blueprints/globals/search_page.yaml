@@ -1,69 +1,99 @@
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: show_label
-        field:
-          default: true
-          display: 'Show Label'
-          type: toggle
-          icon: toggle
-          instructions: 'Do you want there to be a search label or just an icon?'
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: false
-      -
-        handle: label
-        field:
-          input_type: text
-          antlers: false
-          default: Search
-          display: Label
-          type: text
-          icon: text
-          instructions: 'What do you want the wording to be on the site?'
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: true
-          if:
-            show_label: 'equals true'
-      -
-        handle: placeholder
-        field:
-          input_type: text
-          antlers: false
-          default: 'Search for anything...'
-          display: Placeholder
-          type: text
-          icon: text
-          instructions: 'What do you want the Search bar to say before people search for something?'
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: true
-      -
-        handle: no_results
-        field:
-          input_type: text
-          antlers: false
-          default: 'Sorry there are No results for'
-          display: 'No Results'
-          type: text
-          icon: text
-          instructions: 'What to say if there are no results'
-          listable: hidden
-          instructions_position: above
-          visibility: visible
-          always_save: true
-          validate:
-            - required
+        display: 'Before Opening Search'
+        instructions: 'This is what the end user sees.'
+        fields:
+          -
+            handle: show_what
+            field:
+              options:
+                icon: Icon
+                label: Text
+                iconLabel: 'Icon then Label'
+                labelIcon: 'Label then Icon'
+              taggable: false
+              push_tags: false
+              multiple: false
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: icon
+              type: select
+              display: 'Show what'
+              icon: select
+              instructions: 'What would you like to display for the search?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              width: 50
+          -
+            handle: label
+            field:
+              input_type: text
+              antlers: false
+              default: Search
+              display: Label
+              type: text
+              icon: text
+              instructions: 'What do you want the wording to be on the site?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: true
+              hide_display: false
+              unless:
+                show_what: 'equals icon'
+              width: 50
+          -
+            handle: placeholder
+            field:
+              input_type: text
+              antlers: false
+              default: 'Search for anything...'
+              display: Placeholder
+              type: text
+              icon: text
+              instructions: 'What do you want the Search bar to say before people search for something?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: true
+              hide_display: false
+              validate:
+                - required
   content:
     display: Content
-    fields:
+    sections:
       -
-        import: hero
+        display: 'On Page'
+        instructions: 'These are what the user sees on the Search Page above the results.'
+        fields:
+          -
+            import: hero
+          -
+            import: page_content
       -
-        import: page_content
+        display: Results
+        instructions: 'These are what the user sees on the Search Page below the page content.'
+        fields:
+          -
+            handle: no_results
+            field:
+              input_type: text
+              antlers: false
+              default: 'Sorry there are No results for'
+              display: 'No Results'
+              type: text
+              icon: text
+              instructions: 'What to say if there are no results on the search results page.'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              always_save: true
+              validate:
+                - required
+              hide_display: false

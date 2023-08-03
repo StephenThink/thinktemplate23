@@ -1,5 +1,5 @@
 // This is all you.
-import {alpinejs, barbaJs, lightSwitch} from "./components";
+import {alpinejs, barbaJs, cookie, lightSwitch} from "./components";
 import AOS from "aos";
 
 // Animate on Scroll
@@ -17,4 +17,10 @@ lightSwitch()
 // appearFromRight('#heroText',3)
 // appearFromBottom('#nav-items', .5)
 
-barbaJs(true);
+// barbaJs(true);
+
+
+
+
+
+cookie() // Only enable if google analytics is on

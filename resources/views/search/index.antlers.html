@@ -1,0 +1,18 @@
+
+{{ search_page }}
+    {{  partial:partials/hero heading="Search Results for" sub_heading="{get.q}" }}
+{{ /search_page }}
+
+    {{ partial:partials/page_content }}
+
+    {{ search:results }}
+        {{ if no_results }}
+                <div class="flex justify-center items-center bg-gray-200 text-black rounded-xl shadow-lg w-full h-64 container my-section lg:my-section-lg">
+                <h2>{{ search_page:no_results}}.</h2>
+                </div>
+            {{ else }}
+<section class="max-w-4xl mx-auto flex-col space-y-4 divide-y container my-section lg:my-section-lg">
+        {{ partial:search/card }}
+</section>
+            {{ /if }}
+    {{ /search:results }}

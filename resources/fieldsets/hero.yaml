@@ -105,9 +105,9 @@ fields:
       instructions_position: above
       visibility: visible
       always_save: false
+      hide_display: false
       if:
         change_background: 'equals true'
-      hide_display: false
   -
     handle: background_colour
     field:

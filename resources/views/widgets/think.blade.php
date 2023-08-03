@@ -1,8 +1,3 @@
-<style>
-    .think {
-
-    }
-</style>
 <div class="widget_thinkcreative card p-0 content">
     <div class="py-2 px-4 border-b header" style="background-color: #808080 !important; color: #fc0 !important;">
         <div class="w-full lg:w-1/2 pr-5 flex items-start">
