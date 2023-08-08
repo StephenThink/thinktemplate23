@@ -52,6 +52,13 @@ return [
             'limit' => 10, // Default: 5 – The number of images to display in the widget.
             'width' => 50, // Default: 100 – The size of the widget.
         ],
+        [
+            'type' => 'form',
+            'form' => 'contact_us',
+            'fields' => ['name', 'email'],
+            'limit' => '5',
+            'width' => 100,
+        ],
 
 
     ],
