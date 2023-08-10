@@ -1,0 +1,93 @@
+<div x-data="mappableImageComponent({{ cad_grid | to_json | sanitize }})" x-init="init()">
+    <div class="container not-md:w-[710px] lg:w-hire  mb-6 flex flex-col items-center justify-center">
+        <div id="image-container" class="relative md:w-[700px]">
+            <img x-ref="mappable" src="{{ glide:mappable_image width="700" }}" alt="{{mappable_image.alt}}" id="mappable" class="mx-5 md:mx-0 hidden md:block " />
+            {{ if mobile_image }}
+            <img src="{{ glide:mobile_image }}" alt="{{ mobile_image.alt }}" class="md:hidden" />
+                {{ else }}
+            <img src="{{ glide:mappable_image }}" alt="{{ mappable_image.alt }}" class="md:hidden" />
+            {{ /if }}
+            <div x-ref="circleInfo" class="hidden md:block text-lg md:text-[1.1875rem] text-climavent-dark-grey prose lg:prose-lg max-w-none prose-p:leading-[1.4375rem] py-4" id="circleInfo">
+
+                    <!-- Show default message when no circle is hovered -->
+                    <p x-show="!hoveredCircle" class="">Hover over a circle to see its information.</p>
+                    <!-- Show circle info when a circle is hovered -->
+                    <p x-show="hoveredCircle" class="">{{ hoveredCircle }}</p>
+
+            </div>
+            <div class="flex flex-col md:hidden text-lg md:text-[1.1875rem] text-climavent-dark-grey prose lg:prose-lg max-w-none prose-p:leading-[1.4375rem] pt-4 ">
+                <div class="mx-0 bg-background-grey rounded-xl p-4">
+                    {{ cad_grid }}
+                        <div class="flex items-center">
+                        <div class="font-bold">{{ count }}</div>
+                        <div class="ml-4">{{ circle_info }}</div>
+                        </div>
+                    {{ /cad_grid }}
+                </div>
+            </div>
+
+            <div id="circle-container">
+                <template x-for="(circle, index) in circleData" :key="index">
+                    <div
+                        class="circle hidden md:block"
+                        :style="{ left: circle.circle_x + 'px', top: circle.circle_y + 'px' }"
+                        @mouseover="showCircleInfo(circle.circle_info)"
+                    ></div>
+                </template>
+
+            </div>
+            <div x-show="debug" x-ref="imageInfo" class="p-4 bg-yellow-500 text-black text-center">Debug Mode:</div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function mappableImageComponent(initialCircleData) {
+        return {
+            debug: {{ debug_image ? 'true' : 'false' }},
+            circleData: initialCircleData,
+            hoveredCircle: null, // Track the hovered circle's info
+
+            init() {
+
+            // console.log('Received circleData:', circleData);
+
+            if (this.debug) {
+                const self = this;
+                this.image = this.$refs.mappable;
+
+                this.image.addEventListener('mousemove', (event) => {
+                    const rect = self.image.getBoundingClientRect();
+                    const mouseX = event.clientX - rect.left;
+                    const mouseY = event.clientY - rect.top;
+
+                    const x = mouseX;
+                    const y = mouseY;
+
+                    const imageInfo = self.$refs.imageInfo;
+                    if (imageInfo) {
+                        imageInfo.innerHTML = `Debug Mode - x: ${x.toFixed(0)}, y: ${y.toFixed(0)}`;
+                    }
+                });
+
+                this.image.addEventListener('mouseout', () => {
+                    const imageInfo = self.$refs.imageInfo;
+                    if (imageInfo) {
+                        imageInfo.innerHTML = '';
+                    }
+                });
+            }
+
+        },
+
+        showCircleInfo(text) {
+            const circleInfo = this.$refs.circleInfo;
+            if (circleInfo) {
+                circleInfo.innerHTML = text;
+            }
+        }
+
+    };
+    }
+</script>

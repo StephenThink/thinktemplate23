@@ -564,7 +564,6 @@ fields:
                       grid-cols-6: '6'
                       grid-cols-7: '7'
                       grid-cols-8: '8'
-
                     taggable: false
                     push_tags: false
                     multiple: false
@@ -629,7 +628,132 @@ fields:
               fields:
                 -
                   import: reduce_image_card
+            cad_images:
+              display: 'Cad Images'
+              instructions: 'This is to display hints at the bottom of an image.'
+              icon: travel-map
+              fields:
+                -
+                  handle: debug_image
+                  field:
+                    default: false
+                    type: toggle
+                    display: 'Debug Image'
+                    icon: toggle
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: true
+                    instructions: 'This will put a yellow box underneath the image so that you can look for the position of the circles you would like to place.'
+                    inline_label: 'Show Debug Box'
+                -
+                  handle: mappable_image
+                  field:
+                    max_files: 1
+                    mode: list
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    show_set_alt: true
+                    type: assets
+                    display: 'Mappable Image'
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    instructions: 'Please select an image, the image will automatically be scaled to a width of 700px, this is so that the circles wont move on bigger screen sizes.'
+                    validate:
+                      - required
+                -
+                  handle: mobile_image
+                  field:
+                    max_files: 1
+                    mode: list
+                    container: assets
+                    folder: /
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    show_set_alt: true
+                    type: assets
+                    display: 'Mobile Image'
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    instructions: 'This will be displayed on any device that is a small device, so the image will have to the circles numbered up, as the information will be displayed underneath.'
+                -
+                  handle: cad_grid
+                  field:
+                    fields:
+                      -
+                        handle: circle_x
+                        field:
+                          type: integer
+                          display: 'Circle X Position'
+                          icon: integer
+                          listable: hidden
+                          width: 50
+                          instructions_position: above
+                          visibility: visible
+                          hide_display: false
+                          validate:
+                            - required
+                            - 'lte:700'
+                            - 'gte:0'
+                      -
+                        handle: circle_y
+                        field:
+                          type: integer
+                          display: 'Circle Y Position'
+                          icon: integer
+                          listable: hidden
+                          width: 50
+                          instructions_position: above
+                          visibility: visible
+                          hide_display: false
+                          validate:
+                            - required
+                            - 'gte:0'
+                      -
+                        handle: circle_info
+                        field:
+                          automatic_line_breaks: true
+                          automatic_links: false
+                          escape_markup: false
+                          smartypants: false
+                          restrict: false
+                          antlers: false
+                          type: markdown
+                          display: 'Information to display'
+                          icon: markdown
+                          listable: hidden
+                          instructions_position: above
+                          visibility: visible
+                          hide_display: false
+                          instructions: 'This is the information that will be displayed underneath the image.'
+                          validate:
+                            - required
+                    mode: stacked
+                    min_rows: 1
+                    reorderable: true
+                    fullscreen: true
+                    type: grid
+                    display: 'Cad Grid'
+                    icon: grid
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    hide_display: false
+                    instructions: 'This is where all the information that you need to place a circle.  To find out the X and Y position please turn on the ```Show Debug Bar``` and then goto the webpage to find the X and Y figures.'
+                    validate:
+                      - required
       smart_typography: false
       inline: false
       instructions: 'This is what populates the page, if you want to add predefined **sets** then click on the **Plus** to add them.'
       hide_display: false
+      word_count: false
