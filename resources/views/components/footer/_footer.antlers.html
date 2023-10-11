@@ -1,0 +1,20 @@
+<footer class="w-full bg-secondary text-primary p-sm-inner dark:text-secondary dark:bg-primary md:p-md-inner">
+    <div class="md:container">
+        <div class="grid grid-cols-1 space-y-2 md:space-y-0 md:grid-cols-3 md:justify-items-center" >
+            <h2 class="flex flex-col">{{ company:name }}</h2>
+            <div class="flex flex-col">
+                <h3>Navigation</h3>
+                <ul>
+                    {{ nav:collection:pages include_home="true"}}
+                        <li><a href="{{ url }}" class="relative pb-2 transition text-primary dark:text-secondary">{{ title }}</a></li>
+                    {{ /nav:collection:pages }}
+                </ul>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <h3>Socials</h3>
+                {{ partial:components/footer/socials }}
+            </div>
+        </div>
+        {{ partial:components/footer/bottom }}
+    </div>
+</footer>

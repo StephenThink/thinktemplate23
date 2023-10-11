@@ -133,10 +133,10 @@ fields:
       instructions_position: above
       visibility: visible
       always_save: true
+      hide_display: false
       if:
         change_background: 'equals true'
         image_or_colour: 'equals colour'
-      hide_display: false
   -
     handle: dark_background_colour
     field:
@@ -152,7 +152,7 @@ fields:
       taggable: false
       push_tags: false
       cast_booleans: false
-      default: secondary
+      default: 'dark:bg-secondary'
       display: 'Dark Background Colour'
       type: select
       icon: select
@@ -220,7 +220,7 @@ fields:
       taggable: false
       push_tags: false
       cast_booleans: false
-      default: secondary
+      default: text-secondary
       display: 'Text Colour'
       type: select
       icon: select
@@ -247,7 +247,7 @@ fields:
       taggable: false
       push_tags: false
       cast_booleans: false
-      default: primary
+      default: 'dark:text-primary'
       display: 'Dark Text Colour'
       type: select
       icon: select

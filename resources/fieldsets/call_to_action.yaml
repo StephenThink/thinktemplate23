@@ -27,13 +27,18 @@ fields:
       enable_paste_rules: true
       antlers: false
       remove_empty_nodes: false
-      display: 'Call To Action'
+      display: Content
       type: bard
       icon: bard
       listable: hidden
       instructions_position: above
       visibility: visible
       always_save: false
+      replicator_preview: true
+      smart_typography: false
+      inline: false
+      word_count: false
+      hide_display: false
   -
     handle: alignment
     field:
@@ -53,6 +58,8 @@ fields:
       always_save: false
       width: 50
       hide_display: false
+      instructions: 'Pick the alignment of the text.'
+      replicator_preview: true
   -
     handle: box_width
     field:
@@ -77,6 +84,7 @@ fields:
       instructions_position: above
       visibility: visible
       hide_display: false
+      replicator_preview: true
   -
     handle: background_colour
     field:
@@ -127,3 +135,6 @@ fields:
       visibility: visible
       always_save: true
       hide_display: false
+      replicator_preview: true
+      unless:
+        'site_admin:display_theme_content': '=== off'

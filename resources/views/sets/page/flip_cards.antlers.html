@@ -1,11 +1,18 @@
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-section lg:my-section-lg">
+{{ once }}
+{{  push:styles }}
+{{ vite src="resources/css/components/flipCard.css" }}
+
+{{ /push:styles }}
+{{ /once }}
+
+<div class="grid grid-cols-1 my-section md:grid-cols-2 lg:my-lg-section xl:grid-cols-3">
 
 
     {{ flip_cards }}
-<section x-data="flip_card" class="card w-full md:w-[300px] h-[400px] group" @click="toggle">
+<section x-data="flip_card" class="w-full card h-[400px] group md:w-[300px]" @click="toggle">
 <div class="card__inner" x-bind:class="flipped ? 'is-flipped' : ''">
-<div class="card__face card__face--front bg-gradient-to-br from-primary to-secondary">
-    {{ if show_front_image }}<img src="{{ glide:front_image preset="flip_card_image" }}" alt="{{ front_image.alt }}" class="object-cover transition transform-gpu duration-[200ms] ease-in-out scale-110 group-hover:scale-100"/>{{ /if  }}
+<div class="bg-gradient-to-br card__face card__face--front from-primary to-secondary">
+    {{ if show_front_image }}<img src="{{ glide:front_image preset="flip_card_image" }}" alt="{{ front_image.alt }}" class="scale-110 transform-gpu object-cover transition ease-in-out duration-[200ms] group-hover:scale-100"/>{{ /if  }}
 
     <div class="card__content text-white p-2 flex flex-col {{ front_text_position }}">
     {{ if show_front_heading }} <h2>{{ front_heading }}</h2>{{ /if  }}
@@ -13,8 +20,8 @@
 
     </div>
 </div>
-<div class="card__face card__face--back bg-gradient-to-br from-secondary to-primary">
-    {{ if show_back_image }}<img src="{{ glide:back_image preset="flip_card_image" }}" alt="{{ back_image.alt }}" class="object-cover transition transform-gpu duration-[200ms] ease-in-out scale-110 group-hover:scale-100"
+<div class="bg-gradient-to-br card__face card__face--back from-secondary to-primary">
+    {{ if show_back_image }}<img src="{{ glide:back_image preset="flip_card_image" }}" alt="{{ back_image.alt }}" class="scale-110 transform-gpu object-cover transition ease-in-out duration-[200ms] group-hover:scale-100"
                                                                />{{ /if  }}
     <div class="card__content text-white p-2 flex flex-col {{ back_text_position }}">
        {{ if show_back_heading }} <h2>{{ back_heading }}</h2>{{ /if  }}

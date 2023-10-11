@@ -3,16 +3,23 @@
     {{  partial:partials/hero heading="Search Results for" sub_heading="{get.q}" }}
 {{ /search_page }}
 
-    {{ partial:partials/page_content }}
+{{ partial:partials/page_content }}
 
-    {{ search:results }}
-        {{ if no_results }}
-                <div class="flex justify-center items-center bg-gray-200 text-black rounded-xl shadow-lg w-full h-64 container my-section lg:my-section-lg">
-                <h2>{{ search_page:no_results}}.</h2>
-                </div>
-            {{ else }}
-<section class="max-w-4xl mx-auto flex-col space-y-4 divide-y container my-section lg:my-section-lg">
-        {{ partial:search/card }}
-</section>
-            {{ /if }}
-    {{ /search:results }}
+{{ search:results }}
+    {{ if no_results }}
+        <div class="container">
+            <div class="flex h-24 w-full flex-col items-center justify-center rounded-xl bg-gray-200 text-sm text-black shadow-lg my-section md:text-base lg:my-lg-section">
+                <p>{{ search_page:no_results}} for {{ get.q }}.</p>
+                <p>Would you like to try again?</p>
+            </div>
+
+            <div class="my-5">
+                {{ partial:search/search_again }}
+            </div>
+        </div>
+    {{ else }}
+        <section class="container mx-auto max-w-4xl flex-col space-y-4 divide-y my-section lg:my-lg-section">
+                {{ partial:search/card }}
+        </section>
+    {{ /if }}
+{{ /search:results }}

@@ -1,9 +1,11 @@
 title: 'Search Page'
 data:
+  search_active: true
   show_what: icon
   label: Search
   placeholder: 'Search for anything...'
-  no_results: 'Sorry there are no results'
+  mobile_search_active: true
+  mobile_search_position: below
   hero_activated: true
   image_or_colour: colour
   hero_size: h-quarter
@@ -13,3 +15,4 @@ data:
   text_colour: secondary
   dark_text_colour: primary
   heading: '{{get.q}}'
+  no_results: 'Sorry there are no results'

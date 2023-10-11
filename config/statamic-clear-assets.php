@@ -17,7 +17,8 @@ return [
      */
     'ignore_containers' => [
         'favicons',
-        'social_images',
+        'social_icons',
+
     ],
 
     /**
@@ -26,6 +27,7 @@ return [
      */
     'ignore_filenames' => [
         //
+        '.env'
     ],
 
     /**

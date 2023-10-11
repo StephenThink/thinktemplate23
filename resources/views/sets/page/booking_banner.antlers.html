@@ -1,0 +1,57 @@
+{{ if is_active }}
+    <div class="group">
+        {{ if duration == null }}
+            <div class="relative h-[659px]  overflow-hidden" >
+                <img src="{{ glide:banner_image preset='booking_banner' }}" alt="{{ banner_image.alt }}" loading="lazy" data-aos="fade-up" class="h-full w-full absolute transform-gpu transition ease-in-out duration-[200ms] group-hover:scale-110">
+            </div>
+
+        {{ else }}
+
+            {{?
+            $aheadDays = $duration->value()['start']->subDays($days_ahead->value()+1);
+            ?}}
+            {{ if now | is_before:{aheadDays} }}
+                <div class="relative h-[659px]  overflow-hidden" >
+                    <img src="{{ glide:banner_image preset='booking_banner' }}" alt="{{ banner_image.alt }}" loading="lazy" data-aos="fade-up" class="h-full w-full absolute transform-gpu transition ease-in-out duration-[200ms] group-hover:scale-110">
+                </div>
+            {{ /if }}
+
+            {{ if now | is_after:{aheadDays} and now | is_before:{duration:start} }}
+                <div class="grid grid-cols-1 md:grid-cols-3">
+                    <div class="col-span-2 h-[659px] relative  overflow-hidden">
+                        <img src="{{ glide:banner_image preset='booking_banner' }}" {{ banner_image.alt }} loading="lazy" data-aos="fade-right" class="h-full w-full absolute transform-gpu transition ease-in-out duration-[200ms] group-hover:scale-110">
+                    </div>
+                    <div class="bg-primary hover:bg-blue-600/20 transform-gpu  transition ease-in-out duration-[200ms] flex flex-col justify-between p-8" data-aos="fade-left">
+                        <div class="prose-2xl">
+                            {{ booking_before_range }}
+                        </div>
+
+                        {{ if show_start_date }}
+                            <p class="text-2xl">
+                               {{ prepended_start_string }} {{ duration:start }} {{ appended_start_string }}
+                            </p>
+                        {{ /if }}
+                    </div>
+                </div>
+            {{ /if }}
+
+            {{  if duration:start <= now and duration:end >= now or master_override}}
+                {{ if is_link_active and banner_link != null }}<a href="{{ banner_link }}"> {{ /if }}
+
+                    <div class="grid grid-cols-1 md:grid-cols-3">
+                        <div class="col-span-2 h-[659px] relative overflow-hidden">
+                            <img src="{{ glide:banner_image preset='booking_banner' }}" {{ banner_image.alt }} loading="lazy" data-aos="fade-right" class="h-full w-full absolute transform-gpu transition ease-in-out duration-[200ms] group-hover:scale-110">
+                        </div>
+                        <div class="bg-primary cursor-pointer hover:bg-blue-600/20 transform-gpu  transition ease-in-out duration-[200ms] flex flex-col justify-between p-8" data-aos="fade-left">
+                            <div class="prose-2xl">
+                                {{ booking_in_range }}
+                            </div>
+                        </div>
+                    </div>
+                {{ if is_link_active and banner_link != null }}</a> {{ /if }}
+            {{ /if }}
+        {{ /if }}
+
+    </div>
+
+{{ /if }}

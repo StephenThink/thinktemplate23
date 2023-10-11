@@ -1,13 +1,13 @@
-<article class="container my-section lg:my-section-lg relative">
-    <header class="max-w-3xl mx-auto">
+<article class="container relative my-section lg:my-lg-section">
+    <header class="mx-auto max-w-3xl">
         {{ tags }}
-            <a href="{{ url }}" class="px-3 py-1 text-gray-100 font-bold bg-yellow-500 transition hover:bg-orange-500 rounded-full inline-block mb-8">{{ title }}</a>
+            <a href="{{ url }}" class="mb-8 inline-block rounded-full bg-yellow-500 px-3 py-1 font-bold text-gray-100 transition hover:bg-orange-500">{{ title }}</a>
         {{ /tags }}
 
-        <h1 class="text-5xl md:text-6xl lg:text-7xl tracking-tight text-secondary font-bold">{{ title }}</h1>
-        <div class="flex items-center mt-12">
+        <h1 class="text-5xl font-bold tracking-tight text-secondary md:text-6xl lg:text-7xl">{{ title }}</h1>
+        <div class="mt-12 flex items-center">
             {{ if author:avatar }}
-                <img class="rounded-full h-16 w-16" src="{{ glide:author:avatar preset='staff_image' }}" alt="{{ author:avatar:alt }}">
+                <img class="h-16 w-16 rounded-full" src="{{ glide:author:avatar preset='staff_image' }}" alt="{{ author:avatar:alt }}">
             {{ /if }}
             <div class="{{ author:avatar ? 'ml-6' : '' }}">
                 <div>{{ date }}</div>
@@ -20,7 +20,7 @@
         <img class="rotate-2" src="{{ glide:featured_image preset='featured_image' }}" alt="{{ featured_image:alt }}">
     </figure>
 
-    <section class="max-w-3xl mx-auto mt-12 ">
+    <section class="mx-auto mt-12 max-w-3xl">
         {{ partial:partials/page_content }}
     </section>
 </article>

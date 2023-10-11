@@ -52,8 +52,8 @@ fields:
           sets:
             full_width_image:
               display: 'Full Width Image'
-              instructions: null
-              icon: null
+              instructions: 'Full Width image, with the option of adding text in front of the image.'
+              icon: edit-paint-palette
               fields:
                 -
                   handle: image
@@ -300,8 +300,8 @@ fields:
                     hide_display: false
             text_and_image:
               display: 'Text and Image'
-              instructions: null
-              icon: null
+              instructions: 'Have an option to show an image and text.'
+              icon: layout-sidebar-right
               fields:
                 -
                   handle: header
@@ -381,8 +381,8 @@ fields:
                     width: 50
             quote:
               display: Quote
-              instructions: null
-              icon: null
+              instructions: 'Show a quote for people.'
+              icon: text-formatting-quotation
               fields:
                 -
                   handle: quote
@@ -454,57 +454,6 @@ fields:
                     visibility: visible
                     always_save: false
                 -
-                  handle: phone_columns_old
-                  field:
-                    min: 1
-                    max: 4
-                    step: 1
-                    default: 1
-                    display: 'Phone Columns'
-                    type: range
-                    icon: range
-                    instructions: 'How many images to display side by side on a phone?'
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    always_save: true
-                    width: 33
-                    hide_display: false
-                -
-                  handle: tablet_columns_old
-                  field:
-                    min: 1
-                    max: 6
-                    step: 1
-                    default: 1
-                    display: 'Tablets Columns'
-                    type: range
-                    icon: range
-                    instructions: 'How many images to display side by side on a tablet?'
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    always_save: true
-                    width: 33
-                    hide_display: false
-                -
-                  handle: desktop_columns_old
-                  field:
-                    min: 1
-                    max: 10
-                    step: 1
-                    default: 1
-                    display: 'Desktop Columns'
-                    type: range
-                    icon: range
-                    instructions: 'How many images to display side by side on a desktop?'
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    always_save: true
-                    width: 33
-                    hide_display: false
-                -
                   handle: phone_columns
                   field:
                     options:
@@ -527,6 +476,8 @@ fields:
                     instructions_position: above
                     visibility: visible
                     hide_display: false
+                    replicator_preview: true
+                    max_items: 1
                 -
                   handle: tablet_columns
                   field:
@@ -552,8 +503,10 @@ fields:
                     instructions_position: above
                     visibility: visible
                     hide_display: false
+                    replicator_preview: true
+                    max_items: 1
                 -
-                  handle: tablet_columns
+                  handle: desktop_columns
                   field:
                     options:
                       grid-cols-1: '1'
@@ -579,6 +532,8 @@ fields:
                     instructions_position: above
                     visibility: visible
                     hide_display: false
+                    replicator_preview: true
+                    max_items: 1
             call_to_action:
               display: 'Call To Action'
               instructions: null
@@ -588,8 +543,8 @@ fields:
                   import: call_to_action
             slider:
               display: Slider
-              instructions: null
-              icon: null
+              instructions: 'You can slide through various images.'
+              icon: arrows-fit-to-width
               fields:
                 -
                   handle: slider_images
@@ -752,8 +707,273 @@ fields:
                     instructions: 'This is where all the information that you need to place a circle.  To find out the X and Y position please turn on the ```Show Debug Bar``` and then goto the webpage to find the X and Y figures.'
                     validate:
                       - required
+            brick_gallery:
+              display: 'Brick Gallery'
+              instructions: 'These will stack Images as bricks into a gallery'
+              icon: dashboard-layout-2
+              fields:
+                -
+                  handle: mortar
+                  field:
+                    collapse: false
+                    previews: true
+                    fullscreen: true
+                    sets:
+                      new_set_group:
+                        display: 'New Set Group'
+                        instructions: null
+                        icon: null
+                        sets:
+                          brick:
+                            display: Brick
+                            instructions: 'Please fill this information to place items in the gallery.'
+                            icon: media-image-photo-focus-frame
+                            fields:
+                              -
+                                handle: brick_title
+                                field:
+                                  input_type: text
+                                  antlers: false
+                                  type: text
+                                  display: 'Brick Title'
+                                  icon: text
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                                  validate:
+                                    - required
+                                  width: 66
+                              -
+                                handle: brick_size
+                                field:
+                                  options:
+                                    small: Small
+                                    wide: Wide
+                                    tall: Long
+                                    big: Big
+                                  taggable: false
+                                  push_tags: false
+                                  multiple: false
+                                  max_items: 1
+                                  clearable: false
+                                  searchable: true
+                                  cast_booleans: false
+                                  default: small
+                                  type: select
+                                  display: 'Brick Size'
+                                  icon: select
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                                  validate:
+                                    - required
+                                  width: 33
+                              -
+                                handle: brick
+                                field:
+                                  max_files: 1
+                                  min_files: 1
+                                  mode: list
+                                  container: assets
+                                  folder: pageContent/brickGallery
+                                  restrict: false
+                                  allow_uploads: true
+                                  show_filename: true
+                                  show_set_alt: true
+                                  type: assets
+                                  display: Brick
+                                  icon: assets
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                                  validate:
+                                    - required
+                              -
+                                handle: brick_content
+                                field:
+                                  antlers: false
+                                  type: textarea
+                                  display: 'Brick Content'
+                                  icon: textarea
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                              -
+                                handle: brick_link
+                                field:
+                                  type: link
+                                  display: 'Brick Link'
+                                  icon: link
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                    type: replicator
+                    display: Mortar
+                    icon: replicator
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+            masonry_gallery:
+              display: 'Masonry Gallery'
+              instructions: 'The images will flow next to each other and on top of each other.'
+              icon: dashboard-layout-3
+              fields:
+                -
+                  handle: mortar
+                  field:
+                    collapse: false
+                    previews: true
+                    fullscreen: true
+                    sets:
+                      new_set_group:
+                        display: 'New Set Group'
+                        instructions: null
+                        icon: null
+                        sets:
+                          brick:
+                            display: Brick
+                            instructions: 'Please fill this information to place items in the gallery.'
+                            icon: media-image-photo-focus-frame
+                            fields:
+                              -
+                                handle: brick_title
+                                field:
+                                  input_type: text
+                                  antlers: false
+                                  type: text
+                                  display: 'Brick Title'
+                                  icon: text
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                                  validate:
+                                    - required
+                              -
+                                handle: brick
+                                field:
+                                  max_files: 1
+                                  min_files: 1
+                                  mode: list
+                                  container: assets
+                                  folder: pageContent/brickGallery
+                                  restrict: false
+                                  allow_uploads: true
+                                  show_filename: true
+                                  show_set_alt: true
+                                  type: assets
+                                  display: Brick
+                                  icon: assets
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                                  validate:
+                                    - required
+                              -
+                                handle: brick_content
+                                field:
+                                  antlers: false
+                                  type: textarea
+                                  display: 'Brick Content'
+                                  icon: textarea
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                              -
+                                handle: brick_link
+                                field:
+                                  type: link
+                                  display: 'Brick Link'
+                                  icon: link
+                                  listable: hidden
+                                  instructions_position: above
+                                  visibility: visible
+                                  replicator_preview: true
+                                  hide_display: false
+                    type: replicator
+                    display: Mortar
+                    icon: replicator
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+            side_by_side_images:
+              display: 'Side By Side Images'
+              instructions: 'Two Images side by side'
+              icon: layout-split-verical
+              fields:
+                -
+                  handle: left_image
+                  field:
+                    max_files: 1
+                    min_files: 1
+                    mode: list
+                    container: assets
+                    folder: pageContent/sideBySideImages
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    show_set_alt: true
+                    type: assets
+                    display: 'Left Image'
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                    validate:
+                      - required
+                -
+                  handle: right_image
+                  field:
+                    max_files: 1
+                    min_files: 1
+                    mode: list
+                    container: assets
+                    folder: pageContent/sideBySideImages
+                    restrict: false
+                    allow_uploads: true
+                    show_filename: true
+                    show_set_alt: true
+                    type: assets
+                    display: 'Right Image'
+                    icon: assets
+                    listable: hidden
+                    instructions_position: above
+                    visibility: visible
+                    replicator_preview: true
+                    hide_display: false
+                    validate:
+                      - required
+            booking_banner:
+              display: 'Booking Banner'
+              instructions: 'This allows people to see a Banner advertising upcoming shows'
+              icon: media-image-photo-focus-frame
+              fields:
+                -
+                  import: booking_banner
       smart_typography: false
       inline: false
       instructions: 'This is what populates the page, if you want to add predefined **sets** then click on the **Plus** to add them.'
       hide_display: false
       word_count: false
+      replicator_preview: true

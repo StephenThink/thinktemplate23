@@ -38,7 +38,6 @@ tabs:
             handle: telephone
             field:
               input_type: tel
-              default: '07*** ******'
               character_limit: 11
               antlers: false
               type: text
@@ -48,6 +47,8 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
+              replicator_preview: true
+              placeholder: '07*** ******'
           -
             handle: message
             field:

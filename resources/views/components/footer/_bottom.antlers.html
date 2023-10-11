@@ -1,0 +1,26 @@
+<div class="flex flex-col items-start justify-between text-sm pt-inner lg:flex-row lg:items-end">
+    <div >&copy; {{  current_date | format="Y" }} {{ company:name }} </div>
+    <div class="mt-2 flex lg:mt-0">
+        <ul class="flex flex-col gap-1 md:flex-row md:gap-2">
+            {{ nav:legal_nav }}
+                <li><a href="{{ url }}" class="relative transition text-primary dark:text-secondary">{{ title }}</a></li>
+            {{ /nav:legal_nav }}
+        </ul>
+    </div>
+    <div class="mt-2 flex lg:mt-0">
+        {{ if site_admin:display_what == "text" }}
+            <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
+                Created by {{ site_admin:company_name }}</a>
+        {{ elseif site_admin:display_what == "logo" }}
+            <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
+                {{ svg :src="site_admin:company_logo" class="fill-think-yellow dark:fill-think-dark" }}
+                Created this site
+            </a>
+        {{ else }}
+            <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
+                {{ svg :src="site_admin:company_logo" class="fill-think-yellow dark:fill-think-dark" }}
+                Created by {{ site_admin:company_name }}
+            </a>
+        {{ /if }}
+    </div>
+</div>

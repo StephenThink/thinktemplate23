@@ -1,0 +1,5 @@
+title: Users
+disk: avatars
+allow_uploads: true
+create_folders: true
+warm_presets: false

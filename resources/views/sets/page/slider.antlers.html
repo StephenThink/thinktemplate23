@@ -1,10 +1,21 @@
-<div class=" my-section lg:my-section-lg">
-    <div class="main-carousel  w-[400px] md:w-[800px] h-[300px] md:h-[600px] mx-auto" data-flickity='{ "cellAlign": "left", "contain": true, "fullscreen": true, "lazyLoad": 1 }'>
+{{ once }}
+    {{  push:styles }}
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    {{ /push:styles }}
+{{ /once }}
+
+<div class="my-section lg:my-lg-section">
+    <div class="mx-auto main-carousel w-[400px] h-[300px] md:w-[800px] md:h-[600px]" data-flickity='{ "cellAlign": "left", "contain": true, "fullscreen": true, "lazyLoad": 1 }'>
                     {{  slider_images }}
         <div class="carousel-cell">
-                    <img src="{{ glide:url preset="slider_image" }}" alt="{{ alt }}" class="w-[400px] md:w-[800px] h-[300px] md:h-[600px]">
+                    <img src="{{ glide:url preset="slider_image" }}" alt="{{ alt }}" class="w-[400px] h-[300px] md:w-[800px] md:h-[600px]">
         </div>
                 {{  /slider_images }}
     </div>
 </div>
 
+{{ once }}
+    {{  push:scripts }}
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    {{  /push:scripts }}
+{{ /once }}

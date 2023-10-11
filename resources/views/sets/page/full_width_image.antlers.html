@@ -1,4 +1,4 @@
-<div class="relative my-section lg:my-section-lg ">
+<div class="relative my-section lg:my-lg-section">
     {{#      Text readability either add contrast to the image to make it appear darker or add a background to the text #}}
     {{  if text_readability == 'image' }}
         <img src="{{ glide:image preset='full-image' contrast='-25'}}" alt="{{ image.alt }}" loading="lazy"  >
@@ -34,7 +34,7 @@
 
 </div>
 {{# Mobile friendly that displays this underneath and hides it on the full image.  This fixes any issue if the text overflows. #}}
-<div class="lg:hidden mb-section container">
+<div class="container mb-section lg:hidden">
     {{ if content }}
         <div class=" prose prose-sm text-black max-w-none {{ content_position }}">{{ content }}</div>
     {{ /if }}

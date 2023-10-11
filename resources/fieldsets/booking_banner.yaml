@@ -1,0 +1,242 @@
+title: 'Booking Banner'
+fields:
+  -
+    handle: is_active
+    field:
+      default: false
+      type: toggle
+      display: 'Is Active'
+      icon: toggle
+      instructions: 'If this is enabled then the visitor will see the Banner.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: banner_image
+    field:
+      max_files: 1
+      min_files: 1
+      mode: list
+      container: assets
+      folder: pageContent/bannerImage
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: 'Banner Image'
+      icon: assets
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      validate:
+        - required
+  -
+    handle: banner_link
+    field:
+      type: link
+      display: 'Banner Link'
+      icon: link
+      instructions: 'This is the link to the Booking Page'
+      width: 66
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: is_link_active
+    field:
+      default: false
+      type: toggle
+      display: 'Is Link Active'
+      icon: toggle
+      instructions: 'If this is active then the visitor can goto the booking page.'
+      width: 33
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: duration
+    field:
+      mode: range
+      inline: false
+      full_width: false
+      columns: 3
+      rows: 1
+      time_enabled: false
+      time_seconds_enabled: false
+      type: date
+      display: Duration
+      icon: date
+      instructions: 'This is when tickets are available to buy.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: before_start_date
+    field:
+      type: section
+      display: 'Before Start Date'
+      icon: section
+      instructions: 'These are all the settings that can be configured with the time frame between the Days Ahead and Start Date.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: booking_before_range
+    field:
+      buttons:
+        - h3
+        - bold
+        - italic
+        - removeformat
+        - underline
+        - alignleft
+        - aligncenter
+        - alignright
+        - alignjustify
+      smart_typography: false
+      save_html: false
+      inline: false
+      toolbar_mode: fixed
+      reading_time: false
+      word_count: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      remove_empty_nodes: false
+      antlers: false
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      always_show_set_button: false
+      collapse: false
+      previews: true
+      type: bard
+      display: 'Booking Before Range'
+      icon: bard
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: days_ahead
+    field:
+      default: '30'
+      type: integer
+      display: 'Days Ahead'
+      icon: integer
+      instructions: 'After setting this, this would show a different message letting people know that booking is available soon.'
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: show_start_date
+    field:
+      default: false
+      type: toggle
+      display: 'Show Start Date'
+      icon: toggle
+      instructions: |-
+        Show when the booking date starts?
+        This will also show the prepend and appends beside the date.
+      width: 50
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: prepended_start_string
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Prepended Start String'
+      icon: text
+      instructions: 'Show some text before the Start date'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: appended_start_string
+    field:
+      input_type: text
+      antlers: false
+      type: text
+      display: 'Appended Start String'
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: ongoing_bookings
+    field:
+      type: section
+      display: 'Ongoing Bookings'
+      icon: section
+      instructions: 'These are all the settings that can be configured with the time frame between the Start Date and End Date.'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  -
+    handle: booking_in_range
+    field:
+      buttons:
+        - h3
+        - bold
+        - italic
+        - removeformat
+        - underline
+        - alignleft
+        - aligncenter
+        - alignright
+        - alignjustify
+      smart_typography: false
+      save_html: false
+      inline: false
+      toolbar_mode: fixed
+      reading_time: false
+      word_count: false
+      fullscreen: true
+      allow_source: true
+      enable_input_rules: true
+      enable_paste_rules: true
+      remove_empty_nodes: false
+      antlers: false
+      link_noopener: false
+      link_noreferrer: false
+      target_blank: false
+      always_show_set_button: false
+      collapse: false
+      previews: true
+      type: bard
+      display: 'Booking In Range'
+      icon: bard
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false

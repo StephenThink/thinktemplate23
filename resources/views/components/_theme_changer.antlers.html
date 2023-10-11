@@ -1,0 +1,14 @@
+{{ site_admin }}
+    {{ if display_theme_content != 'off' }}
+        <div x-data="theme_changer"  x-init="init()">
+            <button class="{{ light_text_colour }} dark:{{ dark_text_colour }} transition duration-150 ease-in-out flex items-center" @click="toggleDarkMode">
+                    {{ if display_theme_content == 'text' }}
+                        <span class="{{ light_text_colour }} dark:{{ dark_text_colour }}" x-text="isDarkMode ? '{{ to_light }}' : '{{ to_dark }}'"></span>
+                    {{ else }}
+                      {{ svg src="{{ light_svg }}" x-show="isDarkMode" class="h-6 w-6"}}
+                      {{ svg src="{{ dark_svg }}" x-show="!isDarkMode" class="h-6 w-6"}}
+                    {{ /if }}
+            </button>
+        </div>
+    {{ /if }}
+{{ /site_admin }}

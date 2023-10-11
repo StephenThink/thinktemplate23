@@ -1,0 +1,15 @@
+<div class="flex items-center justify-between">
+    {{ partial:components/hamburger }}
+    <a href="/" id="company-logo" class="p-2 text-lg font-bold antialiased text-primary dark:text-secondary md:text-3xl">{{ company:name }}</a>
+    <div class="flex items-center">
+        <div class="z-10 hidden items-center gap-4 lg:flex">
+            {{ nav:main_nav }}
+                <a href="{{ url }}" class="block p-2 transition text-primary hover:bg-gray-300 dark:text-secondary">{{ title }}</a>
+            {{ /nav:main_nav }}
+        </div>
+        <div class="flex items-center">
+            {{ partial:components/searchbar }}
+            {{ partial:components/theme_changer }}
+        </div>
+    </div>
+</div>

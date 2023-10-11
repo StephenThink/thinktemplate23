@@ -60,7 +60,7 @@ tabs:
             handle: by32
             field:
               mode: grid
-              container: assets
+              container: think
               restrict: false
               allow_uploads: true
               show_filename: true
@@ -74,11 +74,13 @@ tabs:
               visibility: visible
               always_save: false
               folder: site/icons
+              show_set_alt: true
+              hide_display: false
           -
             handle: by192
             field:
               mode: grid
-              container: assets
+              container: think
               restrict: false
               allow_uploads: true
               show_filename: true
@@ -107,7 +109,7 @@ tabs:
             handle: apple_touch
             field:
               mode: grid
-              container: assets
+              container: think
               restrict: false
               allow_uploads: true
               show_filename: true
@@ -175,8 +177,8 @@ tabs:
             handle: company_logo
             field:
               mode: grid
-              container: assets
-              folder: site/icons
+              container: think
+              folder: /
               restrict: false
               allow_uploads: true
               show_filename: true
@@ -189,6 +191,8 @@ tabs:
               instructions_position: above
               visibility: visible
               always_save: false
+              show_set_alt: true
+              hide_display: false
           -
             handle: company_name
             field:
@@ -217,3 +221,418 @@ tabs:
               if_any:
                 company_logo: 'not null'
                 company_name: 'not null'
+  themes:
+    display: Themes
+    sections:
+      -
+        display: 'New Section'
+        fields:
+          -
+            handle: display_theme_content
+            field:
+              options:
+                text: Text
+                icons: Icons
+                'off': 'Off'
+              default: 'off'
+              type: button_group
+              display: 'Display Theme Content'
+              icon: button_group
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              instructions: 'When switched off the default theme is the light mode.'
+          -
+            handle: to_light
+            field:
+              input_type: text
+              default: Light
+              antlers: false
+              type: text
+              display: 'To Light'
+              icon: text
+              instructions: 'What would you like to see when you want to switch to Light Mode'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              always_save: true
+              if:
+                display_theme_content: 'equals text'
+          -
+            handle: to_dark
+            field:
+              input_type: text
+              default: Dark
+              antlers: false
+              type: text
+              display: 'To Dark'
+              icon: text
+              instructions: 'What would you like to see when you want to switch to Dark Mode'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              always_save: true
+              if:
+                display_theme_content: 'equals text'
+          -
+            handle: light_svg
+            field:
+              max_files: 1
+              mode: list
+              container: think
+              folder: site/icons
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Light Svg'
+              icon: assets
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              always_save: true
+              if:
+                display_theme_content: 'equals icons'
+              validate:
+                - 'mimes:svg'
+          -
+            handle: dark_svg
+            field:
+              max_files: 1
+              mode: list
+              container: think
+              folder: site/icons
+              restrict: false
+              allow_uploads: true
+              show_filename: true
+              show_set_alt: true
+              type: assets
+              display: 'Dark Svg'
+              icon: assets
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              always_save: true
+              if:
+                display_theme_content: 'equals icons'
+              validate:
+                - 'mimes:svg'
+          -
+            handle: light_text_colour
+            field:
+              options:
+                text-primary: Primary
+                text-secondary: Secondary
+                text-white: White
+                text-black: Black
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: text-primary
+              type: select
+              display: 'Light Text Colour'
+              icon: select
+              instructions: 'Please select a colour for Light mode.'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              unless:
+                display_theme_content: 'equals off'
+              always_save: true
+          -
+            handle: dark_text_colour
+            field:
+              options:
+                text-primary: Primary
+                text-secondary: Secondary
+                text-white: White
+                text-black: Black
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: text-secondary
+              type: select
+              display: 'Dark Text Colour'
+              icon: select
+              instructions: 'Please select a colour for Dark mode'
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              unless:
+                display_theme_content: 'equals off'
+              always_save: true
+  navigation:
+    display: Navigation
+    sections:
+      -
+        display: 'Navigation Customising'
+        fields:
+          -
+            handle: nav_animation
+            field:
+              options:
+                'x-transition:enter="transition-opacity ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-1" x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-1" x-transition:leave-end="opacity-0"': Default
+                'x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform -translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform -translate-x-full"': 'In Left, Out Left'
+                'x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform -translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-full"': 'In Left, Out Right'
+                'x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform translate-x-full"': 'In Right, Out Right'
+                'x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform -translate-x-full"': 'In Right, Out Left'
+                'x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-full" x-transition:enter-end="opacity-100 transform translate-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform-y-0" x-transition:leave-end="opacity-0 transform -translate-y-full"': 'From Top'
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: 'x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-1" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="opacity-1" x-transition:leave-end="opacity-0"'
+              type: select
+              display: 'Nav Animation'
+              icon: select
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+              instructions: 'What type of Animation would you like for your Menu on Mobile View?'
+          -
+            handle: light_hamburger_colour
+            field:
+              options:
+                text-primary: Primary
+                text-secondary: Secondary
+                text-white: White
+                text-black: Black
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: text-primary
+              type: select
+              display: 'Light Hamburger Colour'
+              icon: select
+              instructions: 'Please select a colour for Light mode.'
+              width: 50
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+          -
+            handle: dark_hamburger_colour
+            field:
+              options:
+                text-primary: Primary
+                text-secondary: Secondary
+                text-white: White
+                text-black: Black
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: text-secondary
+              type: select
+              display: 'Dark Hamburger Colour'
+              icon: select
+              instructions: 'Please select a colour for Dark mode'
+              width: 50
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+          -
+            handle: hamburger_animation
+            field:
+              options:
+                default: Default
+                'option 1': 'Option 1'
+                'option 2': 'Option 2'
+                'option 3': 'Option 3'
+              taggable: false
+              push_tags: false
+              multiple: false
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: default
+              type: select
+              display: 'Hamburger Animation'
+              icon: select
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+              instructions: |-
+                How would you like the Hamburger to Animate?
+
+                Default: No fancier-ness just Hamburger to X.<br>
+                Option 1: It goes from a Hamburger and loops into an X.<br>
+                Option 2: It goes from a Hamburger into a Circle with an X.<br>
+                Option 3: It goes from a Hamburger into a the word Menu with a line underneath it.<br>
+              max_items: 1
+          -
+            handle: option_1_size
+            field:
+              min: 20
+              max: 50
+              step: 1
+              default: 40
+              type: range
+              display: 'Option 1 Size'
+              icon: range
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+              if:
+                hamburger_animation: 'equals option 1'
+              always_save: true
+          -
+            handle: option_1_speed
+            field:
+              options:
+                slow: Slow
+                medium: Medium
+                fast: Fast
+              default: medium
+              type: button_group
+              display: Speed
+              icon: button_group
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+              always_save: true
+              width: 50
+              instructions: 'How quick would you like the animation speed?'
+              if:
+                hamburger_animation: 'equals option 1'
+          -
+            handle: option_1_stroke_size
+            field:
+              options:
+                stroke-thinnest: Thinnest
+                stroke-thin: Thin
+                stroke-medium: Medium
+                stroke-chunk: Chunk
+                stroke-obese: Obese
+              default: stroke-medium
+              type: button_group
+              display: 'Stroke Size'
+              icon: button_group
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+              if:
+                hamburger_animation: 'equals option 1'
+              always_save: true
+              width: 50
+              instructions: 'How big would you like the patties in the Hamburger?'
+          -
+            handle: option_2_speed
+            field:
+              options:
+                slow: Slow
+                medium: Medium
+                fast: Fast
+              default: medium
+              type: button_group
+              display: Speed
+              icon: button_group
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+              if:
+                hamburger_animation: 'equals option 2'
+              always_save: true
+              width: 50
+              instructions: 'How quick would you like the animation speed?'
+          -
+            handle: option_2_stroke_size
+            field:
+              options:
+                2: Thinnest
+                4: Thin
+                6: Medium
+                8: Chunk
+                10: Obese
+              default: '6'
+              type: button_group
+              display: 'Stroke Size'
+              icon: button_group
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+              if:
+                hamburger_animation: 'equals option 2'
+              always_save: true
+              width: 50
+              instructions: 'How big would you like the patties in the Hamburger?'
+          -
+            handle: option_3_gap_size
+            field:
+              options:
+                thinnest: Thinnest
+                thin: Thin
+                medium: Medium
+              default: medium
+              type: button_group
+              display: 'Gap Size'
+              icon: button_group
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+              if:
+                hamburger_animation: 'equals option 3'
+              always_save: true
+              width: 50
+              instructions: 'How big would you like the space in between patties in the Hamburger?'
+          -
+            handle: option_3_stroke_size
+            field:
+              options:
+                thinnest: Thinnest
+                thin: Thin
+                medium: Medium
+              default: medium
+              type: button_group
+              display: 'Stroke Size'
+              icon: button_group
+              listable: hidden
+              instructions_position: below
+              visibility: visible
+              hide_display: false
+              if:
+                hamburger_animation: 'equals option 3'
+              always_save: true
+              width: 50
+              instructions: 'How big would you like the patties in the Hamburger?'

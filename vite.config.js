@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-// import vue2 from '@vitejs/plugin-vue2';
 
 export default defineConfig({
     plugins: [
@@ -8,14 +7,15 @@ export default defineConfig({
             input: [
                 'resources/css/site.css',
                 'resources/js/site.js',
-                'resources/css/error404.css'
-                // Control Panel assets.
-                // https://statamic.dev/extending/control-panel#adding-css-and-js-assets
+                'resources/css/error404.css',
+                'resources/css/components/flipCard.css',
+                'resources/css/components/brickGallery.css',
+                'resources/css/components/masonryGallery.css',
+                // You can add more files here as needed.
                 // 'resources/css/cp.css',
                 // 'resources/js/cp.js',
             ],
             refresh: true,
         }),
-        // vue2(),
     ],
 });

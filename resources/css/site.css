@@ -2,9 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "sizes.css";
-@import "flipCard.css";
 @import "scrollBar.css";
 @import "aos.css";
+@import "components/hamburger.css";
+
 
 /* This is all you. */
 /* This is all you. */
@@ -56,7 +57,7 @@
 
 
 .quote-block {
-    @apply my-inner lg:my-inner-lg pl-8 text-xl font-bold text-center
+    @apply my-inner lg:my-lg-inner pl-8 text-xl font-bold text-center
 }
 
 input, textarea {

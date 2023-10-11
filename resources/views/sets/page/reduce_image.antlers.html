@@ -1,12 +1,12 @@
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-section lg:my-section-lg">
+<div class="grid grid-cols-1 my-section md:grid-cols-2 lg:my-lg-section xl:grid-cols-3">
 {{  reduce_image }}
 
 <div id="reduce-image">
-    <div class="card relative w-[300px] h-[600px] m-4 overflow-hidden bg-black transition-shadow transition-transform hover:shadow-lg group rounded-xl">
-        <div class="w-full h-1/2 transition-[0.3s] group-hover:h-[15%]"><img src="{{ glide:image preset='reducing_image' }}" alt="{{ image.alt }}"></div>
-        <div class="relative h-1/2 p-4 bg-white transition-[0.3s] group-hover:h-[85%]">
-            <span class="bg-primary text-secondary h-8 w-full absolute -top-8 left-0 flex items-center justify-center ">{{ tag }}</span>
-            <div class="overscroll-contain overflow-y-auto group-hover:h-full">
+    <div class="relative m-4 overflow-hidden rounded-xl bg-black transition-shadow transition-transform card w-[300px] h-[600px] group hover:shadow-lg">
+        <div class="h-1/2 w-full transition-[0.3s] group-hover:h-[15%]"><img src="{{ glide:image preset='reducing_image' }}" alt="{{ image.alt }}"></div>
+        <div class="relative h-1/2 bg-white p-4 transition-[0.3s] group-hover:h-[85%]">
+            <span class="absolute -top-8 left-0 flex h-8 w-full items-center justify-center bg-primary text-secondary">{{ tag }}</span>
+            <div class="overflow-y-auto overscroll-contain group-hover:h-full">
             {{ content }}
             </div>
         </div>
