@@ -9,14 +9,14 @@
 
     {{ /if }}
     {{ if display_which == 'heading' }}
-            <h1 id="heroText" class="text-5xl z-10">
+            <h1 id="heroText" class="z-10 text-lg md:text-5xl">
                 {{ heading | widont }}
             </h1>
         {{  if sub_heading }}
-                <p class="text-3xl z-10">{{ sub_heading | widont}}</p>
+                <p class="z-10 text-3xl">{{ sub_heading | widont}}</p>
             {{ /if }}
         {{ else }}
-            <p class="text-4xl z-10">
+            <p class="z-10 text-4xl">
                 {{ introduction | widont }}
             </p>
         {{  /if }}

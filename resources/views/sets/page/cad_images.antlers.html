@@ -1,13 +1,13 @@
 <div x-data="mappableImageComponent({{ cad_grid | to_json | sanitize }})" x-init="init()">
-    <div class="container not-md:w-[710px] lg:w-hire  mb-6 flex flex-col items-center justify-center">
+    <div class="container mb-6 flex flex-col items-center justify-center not-md:w-[710px] lg:w-hire">
         <div id="image-container" class="relative md:w-[700px]">
-            <img x-ref="mappable" src="{{ glide:mappable_image width="700" }}" alt="{{mappable_image.alt}}" id="mappable" class="mx-5 md:mx-0 hidden md:block " />
+            <img x-ref="mappable" src="{{ glide:mappable_image width="700" }}" alt="{{mappable_image.alt}}" id="mappable" class="mx-5 hidden md:mx-0 md:block" />
             {{ if mobile_image }}
             <img src="{{ glide:mobile_image }}" alt="{{ mobile_image.alt }}" class="md:hidden" />
                 {{ else }}
             <img src="{{ glide:mappable_image }}" alt="{{ mappable_image.alt }}" class="md:hidden" />
             {{ /if }}
-            <div x-ref="circleInfo" class="hidden md:block text-lg md:text-[1.1875rem] text-climavent-dark-grey prose lg:prose-lg max-w-none prose-p:leading-[1.4375rem] py-4" id="circleInfo">
+            <div x-ref="circleInfo" class="hidden max-w-none py-4 text-lg text-climavent-dark-grey prose prose-p:leading-[1.4375rem] md:text-[1.1875rem] md:block lg:prose-lg" id="circleInfo">
 
                     <!-- Show default message when no circle is hovered -->
                     <p x-show="!hoveredCircle" class="">Hover over a circle to see its information.</p>
@@ -15,8 +15,8 @@
                     <p x-show="hoveredCircle" class="">{{ hoveredCircle }}</p>
 
             </div>
-            <div class="flex flex-col md:hidden text-lg md:text-[1.1875rem] text-climavent-dark-grey prose lg:prose-lg max-w-none prose-p:leading-[1.4375rem] pt-4 ">
-                <div class="mx-0 bg-background-grey rounded-xl p-4">
+            <div class="flex max-w-none flex-col pt-4 text-lg text-climavent-dark-grey prose prose-p:leading-[1.4375rem] md:text-[1.1875rem] md:hidden lg:prose-lg">
+                <div class="mx-0 rounded-xl p-4 bg-background-grey">
                     {{ cad_grid }}
                         <div class="flex items-center">
                         <div class="font-bold">{{ count }}</div>
@@ -29,14 +29,14 @@
             <div id="circle-container">
                 <template x-for="(circle, index) in circleData" :key="index">
                     <div
-                        class="circle hidden md:block"
+                        class="hidden circle md:block"
                         :style="{ left: circle.circle_x + 'px', top: circle.circle_y + 'px' }"
                         @mouseover="showCircleInfo(circle.circle_info)"
                     ></div>
                 </template>
 
             </div>
-            <div x-show="debug" x-ref="imageInfo" class="p-4 bg-yellow-500 text-black text-center">Debug Mode:</div>
+            <div x-show="debug" x-ref="imageInfo" class="bg-yellow-500 p-4 text-center text-black">Debug Mode:</div>
         </div>
     </div>
 

@@ -3,6 +3,27 @@ tabs:
     display: Main
     sections:
       -
+        display: 'Searchable?'
+        instructions: 'Would you like to have a search feature for this project?'
+        fields:
+          -
+            handle: search_active
+            field:
+              options:
+                'false': 'No'
+                'true': 'Yes'
+              inline: true
+              cast_booleans: true
+              default: 'false'
+              type: radio
+              display: 'Search Active'
+              icon: radio
+              instructions: 'Would you like the project to be searchable?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+      -
         display: 'Before Opening Search'
         instructions: 'This is what the end user sees.'
         fields:
@@ -14,22 +35,16 @@ tabs:
                 label: Text
                 iconLabel: 'Icon then Label'
                 labelIcon: 'Label then Icon'
-              taggable: false
-              push_tags: false
-              multiple: false
-              clearable: false
-              searchable: true
-              cast_booleans: false
               default: icon
-              type: select
-              display: 'Show what'
-              icon: select
-              instructions: 'What would you like to display for the search?'
+              type: button_group
+              display: 'How would you like the search feature shown?'
+              icon: button_group
               listable: hidden
               instructions_position: above
               visibility: visible
               hide_display: false
               width: 50
+              instructions: 'What would you like to display for the search?'
           -
             handle: label
             field:
@@ -48,6 +63,10 @@ tabs:
               unless:
                 show_what: 'equals icon'
               width: 50
+      -
+        display: 'Open Dialog'
+        instructions: 'After the Search Button is pressed...'
+        fields:
           -
             handle: placeholder
             field:
@@ -65,6 +84,45 @@ tabs:
               hide_display: false
               validate:
                 - required
+      -
+        display: 'Mobile Nav'
+        instructions: 'You can customise how the search looks on a mobile view'
+        fields:
+          -
+            handle: mobile_search_active
+            field:
+              options:
+                'false': 'No'
+                'true': 'Yes'
+              inline: true
+              cast_booleans: true
+              default: 'false'
+              type: radio
+              display: 'Mobile Nav Search Active'
+              icon: radio
+              instructions: 'Would you like to see the search feature on the Mobile Nav Menu?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
+          -
+            handle: mobile_search_position
+            field:
+              options:
+                top: Top
+                below: 'Below other navigation links'
+                bottom: Bottom
+              inline: false
+              cast_booleans: false
+              default: top
+              type: radio
+              display: 'Mobile Search Position'
+              icon: radio
+              instructions: 'Where would you like the Search bar to be shown?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              hide_display: false
   content:
     display: Content
     sections:

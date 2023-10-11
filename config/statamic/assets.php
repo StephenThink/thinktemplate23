@@ -39,7 +39,7 @@ return [
         |
         */
 
-        'driver' => 'gd',
+        'driver' => 'imagick',
 
         /*
         |--------------------------------------------------------------------------
@@ -99,18 +99,38 @@ return [
 
         'presets' => [
             // 'small' => ['w' => 200, 'h' => 200, 'q' => 75, 'fit' => 'crop'],
+//            'xs-webp' => ['w' => 320, 'h' => 10000, 'q' => 85, 'fit' => 'contain', 'format' => 'webp'],
+//            'sm-webp' => ['w' => 480, 'h' => 10000, 'q' => 85, 'fit' => 'contain', 'format' => 'webp'],
+//            'md-webp' => ['w' => 768, 'h' => 10000, 'q' => 85, 'fit' => 'contain', 'format' => 'webp'],
+//            'lg-webp' => ['w' => 1280, 'h' => 10000, 'q' => 85, 'fit' => 'contain', 'format' => 'webp'],
+//            'xl-webp' => ['w' => 1440, 'h' => 10000, 'q' => 95, 'fit' => 'contain', 'format' => 'webp'],
+//            '2xl-webp' => ['w' => 1680, 'h' => 10000, 'q' => 95, 'fit' => 'contain', 'format' => 'webp'],
+//            'xs' => ['w' => 320, 'h' => 10000, 'q' => 85, 'fit' => 'contain'],
+//            'sm' => ['w' => 480, 'h' => 10000, 'q' => 85, 'fit' => 'contain'],
+//            'md' => ['w' => 768, 'h' => 10000, 'q' => 85, 'fit' => 'contain'],
+//            'lg' => ['w' => 1280, 'h' => 10000, 'q' => 85, 'fit' => 'contain'],
+//            'xl' => ['w' => 1440, 'h' => 10000, 'q' => 95, 'fit' => 'contain'],
+//            '2xl' => ['w' => 1680, 'h' => 10000, 'q' => 95, 'fit' => 'contain'],
             'card_image' => ['w' => 200, 'h' => 200, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
-            'staff_image' => ['w' => 200, 'h' => 200, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
-            'hero' => ['w' => 1920, 'h' => 1080, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
-            'full_image' => ['w' => 1920, 'h' => 1080, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
-            'content_image' => ['w' => 300, 'h' => 300, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
-            'gallery_image' => ['w' => 600, 'h' => 600, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+            'gallery_image' => ['w' => 600, 'h' => 600, 'q' => 90, 'fit' => 'max', 'format' => 'webp'],
+            'gallery_thumb' => ['w' => 600, 'h' => 500, 'q' => 75, 'fit' => 'crop_focal', 'format' => 'webp'],
             'slider_image' => ['w' => 800, 'h' => 600, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'news_image' => ['w' => 600, 'h' => 400, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'featured_image' => ['w' => 1800, 'h' => 1200, 'q' => 90, 'filter' => 'greyscale', 'format' => 'webp'],
             'flip_card_image' => ['w' => 300, 'h' => 400, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'fading_image' => ['w' => 300, 'h' => 300, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'reducing_image' => ['w' => 300, 'h' => 300, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+            'full_image' => ['w' => 1920, 'h' => 1080, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+
+            'staff_image' => ['w' => 200, 'h' => 200, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+            'hero' => ['w' => 1920, 'h' => 1080, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp', 'brightness' => '-20'],
+            'content_image' => ['w' => 300, 'h' => 300, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+            'masonry_thumb' => ['q' => 50, 'format' => 'webp'],
+            'masonry' => ['w' => 800, 'h' => 600, 'format' => 'webp', 'fit' => 'max'],
+            'side_by_side' => ['h' => 659, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+            'banner' => ['h' => 659, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+            'booking_banner' => ['h' => 659, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+
         ],
 
         /*

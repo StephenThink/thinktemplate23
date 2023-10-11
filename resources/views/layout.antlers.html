@@ -24,6 +24,8 @@
         <title>{{ title ?? site:name }}</title>
         {{ vite src="resources/js/site.js|resources/css/site.css" }}
 
+        {{ stack:styles }}
+
         {{#      Google Analytics#}}
         {{ if site_admin:analytics_active  }}
 
@@ -38,11 +40,10 @@
         {{ /if }}
         {{#  #}}
 
-        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     </head>
 
-        <body class="bg-gray-100 dark:bg-black font-sans leading-normal text-gray-800 dark:text-white subpixel-antialiased w-full {{ if environment != 'production' }}debug-screens{{ /if }}" data-barba="wrapper">
-                {{  partial:partials/main_nav }}
+        <body class="bg-gray-100 dark:bg-black font-sans leading-normal text-gray-800 dark:text-white subpixel-antialiased w-full {{ if environment != 'production' }}debug-screens{{ /if }} h-screen" data-barba="wrapper">
+                {{  partial:components/navigation/main_nav }}
                 <main data-barba="container" data-barba-namespace="home">
             <div class="flex flex-col items-center">
 
@@ -50,11 +51,11 @@
                     {{ template_content }}
 
             </div>
-                {{  partial:partials/footer }}
+                {{  partial:components/footer/footer }}
                 </main>
 
     {{ partial:partials/cookie }}
+                {{ stack:scripts }}
 
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     </body>
 </html>
