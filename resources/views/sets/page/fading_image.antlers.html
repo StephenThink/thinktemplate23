@@ -7,7 +7,7 @@
     </div>
     <div id="front" class="absolute transition-opacity h-[300px] w-[300px] duration-[2s] hover:opacity-0">
         <h2 id="image-title" class="absolute bottom-0 w-full bg-black bg-opacity-50 p-2 text-center text-white">{{ image_title }}</h2>
-        <img id="card-image" src="{{ glide:image preset='fading_image' }}" alt="{{  image.alt }}" />
+        <img id="card-image" src="{{ glide:image preset='fading_image' }}" alt="{{  image.alt }}" width="{{ image.width }}" height="{{ image.height }}" />
     </div>
 </card>
     {{  /fading_image }}

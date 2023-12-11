@@ -1,13 +1,15 @@
 <!-- Cookie Popup -->
+{{ site_admin }}
 <div id="cookiePopup" class="fixed right-0 bottom-0 left-0 z-50 flex hidden items-end justify-center">
     <div class="flex flex-col items-center justify-between border border-gray-200 bg-white p-4 shadow-xl lg:flex-row">
         <div class="mb-2 flex flex-col items-start justify-center lg:mb-0">
-            <h2 class="mb-2 text-xl font-semibold text-yellow dark:text-dark">This website uses cookies.</h2>
-            <p class="text-yellow dark:text-dark">We use cookies to ensure you get the best experience on our website. By clicking "Accept", you agree to our use of cookies.</p>
+            <h2 class="mb-2 text-xl font-semibold text-black dark:text-dark">{{ cookie_header }}</h2>
+            <p class="text-black dark:text-dark">{{ cookie_description }}</p>
         </div>
         <div class="flex w-full flex-row items-end justify-between gap-4 lg:w-1/2 lg:justify-end">
-            <button id="btnReject" class="rounded bg-red-500 px-4 py-2 font-semibold text-white hover:bg-red-600 focus:outline-none focus:ring">Reject</button>
-            <button id="btnAccept" class="rounded bg-emerald-500 px-4 py-2 font-semibold text-white hover:bg-emerald-600 focus:outline-none focus:ring">Accept</button>
+            <button id="btnReject" class="rounded bg-red-500 px-4 py-2 font-semibold text-white hover:bg-red-600 focus:outline-none focus:ring">{{ cookie_reject_button_text }}</button>
+            <button id="btnAccept" class="rounded bg-emerald-500 px-4 py-2 font-semibold text-white hover:bg-emerald-600 focus:outline-none focus:ring">{{ cookie_accept_button_text }}</button>
       </div>
     </div>
 </div>
+{{ /site_admin }}

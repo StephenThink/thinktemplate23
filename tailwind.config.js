@@ -1,3 +1,4 @@
+const theme = require("tailwindcss/defaultTheme.js");
 module.exports = {
   content: [
     './resources/**/*.antlers.html',
@@ -105,6 +106,8 @@ module.exports = {
             'lg-section': '4rem',
         },
         fontFamily: {
+            heading: ['ubuntu'],
+            body: ['roboto'],
             // black: ['geo-black'],
             // regular: ['geo-regular'],
             // bold: ['geo-bold'],
@@ -196,4 +199,5 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('tailwindcss-debug-screens'),
   ],
+
 }

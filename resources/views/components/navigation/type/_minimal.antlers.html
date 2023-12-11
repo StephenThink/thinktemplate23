@@ -1,0 +1,115 @@
+<nav id="mainNav" class="{{site_admin:behaviour}} w-full px-10 z-main-nav bg-black text-white h-14 flex justify-between items-center" data-animation-type="{{site_admin:animation_type}}"
+     x-data="{ mobileNavOpen: false }"
+     @click.away="mobileNavOpen = false"
+     @keydown.escape.window="mobileNavOpen = false"
+     data-nav-style="{{ navStyle }}">
+
+    <a href="/" id="company-logo" class="p-2 font-bold antialiased text-3xl whitespace-nowrap max-w-[66%]">{{ company:name }}</a>
+    <div class="flex items-center">
+        <div id="siteLinks" class="z-10 items-center gap-4 overflow-hidden hidden {{ site_admin:animate_links=='yes' ?= 'animate-links' }}">
+            {{ nav:main_nav }}
+                {{ if children }}
+                    <div x-data="dropdown" @click="toggle()" @mouseenter="open" @mouseleave="close" class="flex justify-around items-center">
+                        <a   href="{{ url }}" class="block p-2 transition relative ">{{ title }}</a>
+                        {{ svg src="down.svg" }}
+                        <div x-cloak x-show="state" class="absolute top-10 bg-amber-400 text-black rounded-md shadow-md  min-w-[150px] w-fit-content"
+                             x-transition:enter="transition ease-out duration-100"
+                             x-transition:enter-start="opacity-0 transform scale-95 -translate-y-5"
+                             x-transition:enter-end="opacity-100 transform scale-100 translate-y-0"
+                             x-transition:leave="transition ease-in duration-75"
+                             x-transition:leave-start="opacity-100 transform scale-100 translate-y-0"
+                             x-transition:leave-end="opacity-0 transform scale-95 -translate-y-5">
+                            <ul class="flex flex-col">
+                                {{ children }}
+                                <li class="px-2 py-1 hover:text-amber-400 hover:bg-black"><a href="{{ url }}">{{ title }}</a></li>
+                                {{ children }}
+                                <li  class="px-2 py-1 hover:text-amber-400 hover:bg-black {{ depth==3 ?= 'pl-4' }}"><a href="{{ url }}">{{ title }}</a></li>
+                                {{ /children }}
+                                {{ /children }}
+                            </ul>
+                        </div>
+                    </div>
+                {{ else }}
+                    <a href="{{ url }}" class="block p-2 transition">{{ title }}</a>
+                {{ /if }}
+            {{ /nav:main_nav }}
+        </div>
+                <div class="flex items-center">
+                    {{ partial:components/searchbar text-colour="text-white" }}
+                    {{ partial:components/theme_changer  }}
+                </div>
+        <button type="button" class="text-white hidden md:block" id="hamburger">
+            <svg xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 21 21">
+                <g fill="currentColor" transform="scale(.875)">
+                    <rect id="topPatty" x=".5" y="2.5" width="23" height="3" rx="1"/>
+                    <rect id="middlePatty" x=".5" y="10.5" width="23" height="3" rx="1"/>
+                    <rect id="bottomPatty" x=".5" y="18.5" width="23" height="3" rx="1"/>
+                </g>
+            </svg>
+        </button>
+
+        {{ partial:components/hamburger }}
+
+
+</div>
+
+
+
+
+
+    {{#  #}}
+    {{# Mobile Navigation #}}
+    <div id="mobileNav" class="fixed right-0 left-0 z-0 max-h-screen overflow-hidden px-10 bg-secondary dark:bg-primary top-14 md:hidden"
+         x-show="mobileNavOpen" x-cloak {{ site_admin:nav_animation }}
+    >
+        {{ if search_page:mobile_search_position == "top" }}
+            <div class="my-5">
+                {{ partial:components/search/mobile_nav_search }}
+            </div>
+        {{ /if }}
+
+        {{ nav:main_nav }}
+            <ul class="flex flex-col">
+                <li class="px-2 py-1 hover:text-amber-400 hover:bg-black">
+                        <a href="{{ url }}">
+                            {{ title }}
+                        </a>
+                    </li>
+                {{ children }}
+                    <li class="px-2 py-1 hover:text-amber-400 hover:bg-black">
+                        <a href="{{ url }}">
+                            {{ title }}
+                        </a>
+                    </li>
+
+                    {{ children }}
+                        <li class="px-2 py-1 hover:text-amber-400 hover:bg-black {{ depth==3 ?= 'pl-4' }}">
+                            <a href="{{ url }}">
+                                {{ title }}
+                            </a>
+                        </li>
+                    {{ /children }}
+                {{ /children }}
+            </ul>
+        {{ /nav:main_nav }}
+
+        {{ if search_page:mobile_search_position == "below" }}
+            <div class="my-5">
+                {{ partial:components/search/mobile_nav_search }}
+            </div>
+        {{ /if }}
+
+
+        {{ if search_page:mobile_search_position == "bottom" }}
+            <div class="mt-24 mb-10">
+                {{ partial:components/search/mobile_nav_search }}
+            </div>
+        {{ /if }}
+    </div>
+
+
+
+
+
+
+</nav>

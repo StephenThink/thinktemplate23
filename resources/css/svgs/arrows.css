@@ -1,0 +1,102 @@
+:root {
+    --before-color: white;
+    --after-color: yellow;
+    --animation: 0.2s ease-in forwards;
+    }
+
+.svg-icon__arrow {
+    width: 2rem;
+    height: 2rem;
+    stroke: var(--before-color);
+    transition: transform 0.3s ease, stroke 0.3s ease;
+    position: relative;
+    }
+
+#prev:hover .svg-icon__arrow,
+#next:hover .svg-icon__arrow {
+    stroke: var(--after-color);
+    }
+
+.svg-icon__arrow--left {
+    transform-origin: center;
+    }
+
+#prev:hover .svg-icon__arrow--left {
+    transform: translateX(-5px);
+    }
+
+.svg-icon__arrow--right {
+    transform-origin: center;
+    }
+
+#next:hover .svg-icon__arrow--right {
+    transform: translateX(5px);
+    }
+
+.svg-icon__arrow--left line {
+    animation: leftLineShrink var(--animation) ;
+    }
+
+#prev:hover .svg-icon__arrow--left line {
+    animation: leftLineGrow var(--animation) ;
+    }
+
+.svg-icon__arrow--right line {
+    animation: rightLineShrink var(--animation) ;
+    }
+
+#next:hover .svg-icon__arrow--right line {
+    animation: rightLineGrow var(--animation) ;
+    }
+
+@keyframes leftLineGrow {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+        width: 0;
+        }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+        width: 100%;
+        }
+    }
+
+@keyframes leftLineShrink {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+        width: 100%;
+        }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+        width: 0;
+        }
+    }
+
+@keyframes rightLineGrow {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+        width: 0;
+        }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+        width: 100%;
+        }
+    }
+
+@keyframes rightLineShrink {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+        width: 100%;
+        }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+        width: 0;
+        }
+    }

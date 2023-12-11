@@ -1,3 +1,5 @@
+import gsap from "gsap";
+
 const cookie = function () {
     // Replace 'API_ENDPOINT' with the actual URL of your API endpoint
     const API_ENDPOINT = '/api/globals/site_admin';
@@ -12,6 +14,8 @@ const cookie = function () {
     // Check if the user has already accepted cookies
     const hasAcceptedCookies = localStorage.getItem('cookiesAccepted');
     const hasRejectedCookies = localStorage.getItem('cookiesRejected');
+
+
 
     // If cookies have not been accepted or rejected, make the API request to get data
     if (!hasAcceptedCookies && !hasRejectedCookies) {
@@ -45,6 +49,19 @@ const cookie = function () {
         if (!hasAcceptedCookies && !hasRejectedCookies) {
             // Show the cookie popup if not accepted or rejected yet
             cookiePopup.classList.remove('hidden');
+
+            gsap.set(cookiePopup, {
+                y:100,
+                opacity:0,
+            })
+
+            gsap.to(cookiePopup, {
+                y:0,
+                opacity:1,
+                duration:0.5,
+                delay: 2,
+            })
+
 
             // Handle reject button click
             btnReject.addEventListener('click', () => {

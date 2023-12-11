@@ -1,0 +1,15 @@
+<button
+    {{ if type=="submit" }}type="submit"{{ /if }}>
+    {{ if type=="link" }}
+            <a href="{{ destination }}" {{ new_window ?= 'target="_blank"' }}>
+    {{ /if }}
+
+        {{
+            partial:components/buttons/{{ site_admin:button_style }}
+        }}
+
+    {{ if type=="link" }}
+        </a>
+    {{ /if }}
+
+</button>

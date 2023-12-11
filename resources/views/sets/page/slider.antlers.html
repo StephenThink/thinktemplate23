@@ -1,21 +1,58 @@
-{{ once }}
-    {{  push:styles }}
-        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    {{ /push:styles }}
-{{ /once }}
+<div
+    x-data="slider('{{ api_url }}', '{{ id }}', 'page_content')"
+    x-ref="{{id}}"
+>
+    <div class="pt-[13px] land:pt-[32px] md:pt-[32px] lg:pt-[48px] md:pb-6 bg-light dark:bg-dark lg:mb-[-24px] ">
+        <div class="container">
+            <div class="hidden w-full md:block md:w-2/12"></div>
+            <div class="w-full h-full mx-auto md:w-[546px] lg:w-[720px] overflow-hidden">
+                <img
+                    :src="image"
+                    :alt="alt"
+                    alt="alt"
+                    loading="lazy"
+                    class="animated-element-{{ id }} slider-main-image"
+                    width="720"
+                    height="405">
 
-<div class="my-section lg:my-lg-section">
-    <div class="mx-auto main-carousel w-[400px] h-[300px] md:w-[800px] md:h-[600px]" data-flickity='{ "cellAlign": "left", "contain": true, "fullscreen": true, "lazyLoad": 1 }'>
-                    {{  slider_images }}
-        <div class="carousel-cell">
-                    <img src="{{ glide:url preset="slider_image" }}" alt="{{ alt }}" class="w-[400px] h-[300px] md:w-[800px] md:h-[600px]">
+
+                {{ if slider_images|count > 1}}
+                    <div class="flex mt-4 relative">
+                        <button @click="prevSlide()" aria-label="Previous Button" id="prev">
+                            {{ partial:sets/page/slider/prev }}
+                        </button>
+
+                        <div class="snap-x mx-auto relative flex-1 touch-pan-x overscroll-x-contain justify-center overflow-x-auto items-area {{ if display_what == "dots" }} slider-dots {{ /if }} ">
+                            <div class="inline-flex flex-nowrap">
+                            {{ slider_images }}
+                                <div class="snap-center {{ display_what == "thumbs" ? 'thumb' : '' }}">
+                                    {{ if display_what == "thumbs" }}
+                                        <img src="{{ glide:url preset="slider_image_thumb" }}"
+                                             @click="if({{ index }} != activeSlide){updateSlide({{ index }})}"
+                                             alt="{{ alt }}"
+                                             loading="lazy"
+                                             class="thumb"
+                                             :class="{'is-selected' : {{ index }} === activeSlide }"
+                                             width="130"
+                                             height="65">
+                                    {{ /if }}
+                                    {{ if display_what == "dots" }}
+                                        <button
+                                            @click="if({{ index }} != activeSlide){updateSlide({{ index }})}"
+                                            class="dot"
+                                            :class="{'is-selected' : {{ index }} === activeSlide }"></button>
+                                    {{ /if }}
+                                </div>
+                                {{ /slider_images }}
+                            </div>
+                        </div>
+
+                    <button @click="nextSlide()" aria-label="Next Button" id="next">
+                        {{ partial:sets/page/slider/next }}
+                    </button>
+                </div>
+                {{ /if }}
+            </div>
         </div>
-                {{  /slider_images }}
     </div>
 </div>
-
-{{ once }}
-    {{  push:scripts }}
-        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    {{  /push:scripts }}
-{{ /once }}

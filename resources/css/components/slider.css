@@ -1,0 +1,85 @@
+.slider-main-image {
+    @apply md:w-[546px] md:h-[307px] lg:w-[720px] lg:h-[405px];
+    }
+
+
+.slider-dots {
+    display         : inline-flex;
+    width           : 100%;
+
+    padding         : 0;
+    margin          : 0;
+    list-style      : none;
+    text-align      : center;
+    justify-content : center;
+    align-items     : center;
+
+    }
+
+.slider-dots .dot {
+    display       : inline-flex;
+    width         : 10px;
+    height        : 10px;
+    margin        : 0 8px;
+    background    : #000000;
+    border-radius : 50%;
+    opacity       : 0.5;
+    cursor        : pointer;
+    }
+
+.dark .slider-dots .dot {
+    background : #ffffff;
+    }
+
+.slider-dots .dot.is-selected {
+    opacity : 1;
+    }
+
+
+.thumb {
+    width        : 130px;
+    height       : 65px;
+    margin-right : 10px;
+    }
+
+/* For WebKit-based browsers like Chrome, Safari */
+
+/* Hide the scrollbar track */
+.items-area::-webkit-scrollbar-track {
+    background-color : transparent;
+    }
+
+/* Style the scrollbar thumb */
+.items-area::-webkit-scrollbar-thumb {
+    background-color : #ddd; /* Color of the scrollbar thumb */
+    border-radius    : 50px !important;
+    border           : 0;
+    }
+
+.dark .items-area {
+    scrollbar-color : #ddd transparent; /* Color of the thumb and the track */
+
+    }
+
+/* For Firefox */
+/* Hide the scrollbar track */
+/* Note: Firefox currently does not support changing scrollbar colors directly */
+/* But you can hide the track and apply color to the thumb */
+/* The scrollbar thumb color can be set in Firefox under certain conditions */
+/* However, it might not always work due to browser limitations */
+.items-area {
+    scrollbar-width : thin; /* Set the scrollbar width */
+    scrollbar-color : #292929 transparent; /* Color of the thumb and the track */
+    }
+
+.dark .items-area {
+    scrollbar-color : #ddd transparent; /* Color of the thumb and the track */
+
+    }
+
+/* For Edge and other browsers */
+/* Limited support for scrollbar customization */
+/* Similar to WebKit-based browsers */
+/* You might need vendor prefixes for older versions */
+
+

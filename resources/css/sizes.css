@@ -1,5 +1,110 @@
 /* Heading Sizes */
 
-h2 {
-    @apply text-3xl lg:text-4xl;
-}
+@layer base {
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-heading font-bold ;
+        }
+
+    /* Example: Making paragraphs responsive */
+    p {
+        @apply font-body text-base md:text-lg lg:text-xl;
+        }
+
+    /* Example: Making lists responsive */
+    li {
+        @apply font-body text-base
+        /*md:text-lg */
+        /*lg:text-xl*/
+        ;
+        }
+
+
+    textarea {
+        @apply bg-gray-200/10 lg:rounded-xl p-4 appearance-none border border-secondary focus:outline-none focus:ring-2 focus:ring-primary text-primary placeholder-secondary;
+        }
+
+
+
+
+    h1 {
+        @apply text-lg md:text-5xl;
+        }
+
+    h2 {
+        @apply text-3xl ;
+        }
+    h3 {
+        @apply text-2xl ;
+        }
+
+    /* Additional HTML Tags */
+    /* Customize these based on your specific design needs */
+    /* Links */
+    /*a {*/
+    /*    @apply text-primary underline hover:no-underline ;*/
+    /*    }*/
+
+    /* Example: Hover effect on links */
+    /*a:hover {*/
+    /*    @apply  underline; !* Adjust styles for link hover state *!*/
+    /*    }*/
+
+    /* Buttons */
+    /*button, input[type="button"], input[type="submit"], input[type="reset"] {*/
+    /*    @apply bg-primary text-white*/
+    /*            py-2 px-4*/
+    /*            !*md:py-3 md:px-6 *!*/
+    /*            !*lg:py-4 lg:px-8 *!*/
+    /*            rounded-md shadow-md hover:shadow-lg focus:outline-none;*/
+    /*    !* Example styles for buttons *!*/
+    /*    }*/
+
+    /* Example: Hover and focus states for buttons */
+    /*button:hover,*/
+    /*input[type="button"]:hover,*/
+    /*input[type="submit"]:hover,*/
+    /*input[type="reset"]:hover,*/
+    /*button:focus,*/
+    /*input[type="button"]:focus,*/
+    /*input[type="submit"]:focus,*/
+    /*input[type="reset"]:focus {*/
+    /*    @apply shadow-lg; !* Example hover and focus styles for buttons *!*/
+    /*    }*/
+
+    /* Forms */
+    input[type="text"], input[type="email"], input[type="password"], textarea {
+        @apply border border-gray-300 rounded-md py-2 px-3 md:py-3 md:px-4 lg:py-4 lg:px-5 focus:outline-none focus:border-blue-500;
+        /* Example styles for form inputs */
+        }
+
+    /* Example: Focus state for form inputs */
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    textarea:focus {
+        @apply border-blue-500; /* Example focus style for form inputs */
+        }
+
+    /* Tables */
+    table {
+        @apply border-collapse border border-gray-300;
+        /* Example styles for tables */
+        }
+
+    /* Images */
+    img {
+        @apply max-w-full h-auto;
+        /* Example styles for images */
+        }
+
+    /* Sections */
+    section {
+        @apply py-6 md:py-8 lg:py-10;
+        /* Example styles for sections */
+        }
+
+    /* Custom Tags (replace 'custom-tag' with your custom tag name) */
+    /* custom-tag {
+        @apply /* Your styles here */
+
+    }

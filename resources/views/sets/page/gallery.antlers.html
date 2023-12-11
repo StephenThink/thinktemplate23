@@ -3,8 +3,8 @@
 <div class="grid gap-4 {{ phone_columns }} {{ tablet_columns }} {{ desktop_columns }}
  ">
     {{  glide :src="gallery_images" preset='gallery_image' }}
-    <img src="{{ url }}" alt="{{ alt }}">
-        {{  /glide }}
+        <img src="{{ url }}" alt="{{ alt }}" width="{{ width }}" height="{{ height }}">
+    {{  /glide }}
 </div>
 </div>
 

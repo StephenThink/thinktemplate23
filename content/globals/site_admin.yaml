@@ -1,6 +1,10 @@
 title: 'Site Admin'
 data:
   show_cookie_dialog: false
+  cookie_header: 'This website uses cookies.'
+  cookie_description: 'We use cookies to ensure you get the best experience on our website. By clicking "Accept", you agree to our use of cookies.'
+  cookie_accept_button_text: Accept
+  cookie_reject_button_text: Reject
   analytics_active: false
   google_analytics:
     local: localga1
@@ -14,6 +18,7 @@ data:
     full-width-images: '600'
   display_what: both
   company_logo: site/icons/think.svg
+  site_by: 'Site By'
   company_name: 'Think!Creative Uk LTD'
   company_link: 'https://thinkcreative.uk'
   display_theme_content: text
@@ -21,12 +26,16 @@ data:
   to_dark: Dark
   light_svg: site/icons/light.svg
   dark_svg: site/icons/dark.svg
-  light_text_colour: text-primary
-  dark_text_colour: text-secondary
-  nav_animation: 'x-transition:enter="transition-transform ease-out duration-300" x-transition:enter-start="transform -translate-x-full" x-transition:enter-end="transform translate-x-0" x-transition:leave="transition-transform ease-in duration-300" x-transition:leave-start="transform translate-x-0" x-transition:leave-end="transform -translate-x-full"'
-  light_hamburger_colour: primary
-  dark_hamburger_colour: secondary
-  hamburger_animation: 'option 3'
+  light_text_colour: text-white
+  dark_text_colour: text-white
+  nav_style: minimal
+  behaviour: 'fixed top-0 left-0 show-on-scroll-up anime-zoom'
+  animate_links: 'yes'
+  nav_animation: 'x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-full" x-transition:enter-end="opacity-100 transform translate-0" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform-y-0" x-transition:leave-end="opacity-0 transform -translate-y-full"'
+  animation_type: left
+  light_hamburger_colour: text-white
+  dark_hamburger_colour: text-white
+  hamburger_animation: default
   option_1_size: 50
   option_1_speed: fast
   option_1_stroke_size: stroke-thin
@@ -34,3 +43,5 @@ data:
   option_2_stroke_size: '10'
   option_3_gap_size: medium
   option_3_stroke_size: medium
+  transition_effect: overlay
+  button_style: split-rotate

@@ -1,0 +1,73 @@
+{{ site_admin }}
+    <button
+        id="hamburgerMobile"
+        type="button"
+        class="{{ class }} text-{{ light_hamburger_colour }} dark:text-{{ dark_hamburger_colour }} md:hidden"
+        @click="mobileNavOpen = !mobileNavOpen; $refs.hamburgerButton.setAttribute('data-state-type', mobileNavOpen ? 'open' : 'closed')"
+        data-state-type="closed"
+    data-hamburger-type="{{ option }}"
+        x-ref="hamburgerButton"
+    >
+            {{ if hamburger_animation == 'default' }}
+                <svg x-cloak x-show="! mobileNavOpen" xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 21 21">
+                    <g fill="currentColor" transform="scale(.875)">
+                        <rect x=".5" y="2.5" width="23" height="3" rx="1"/>
+                        <rect x=".5" y="10.5" width="23" height="3" rx="1"/>
+                        <rect x=".5" y="18.5" width="23" height="3" rx="1"/>
+                    </g>
+                </svg>
+                <svg x-cloak x-show="mobileNavOpen" xmlns="http://www.w3.org/2000/svg" height="21" width="21" viewBox="0 0 21 21">
+                    <g transform="scale(.875)"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M.75 23.249l22.5-22.5M23.25 23.249L.75.749"/></g>
+                </svg>
+            {{ /if }}
+
+            {{ if hamburger_animation == 'option 1' }}
+                <svg width="{{ option_1_size }}" height="{{ option_1_size }}" viewBox="0 0 100 100" class="stroke-current">
+                    <path class="line-{{ option_1_speed }} {{ option_1_stroke_size }} line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line-{{ option_1_speed }} {{ option_1_stroke_size }} line2" d="M 20,50 H 80" />
+                    <path class="line-{{ option_1_speed }} {{ option_1_stroke_size }} line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            {{ /if }}
+
+            {{ if hamburger_animation == 'option 2' }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 200 200" class="stroke-current">
+                    <g stroke-width="{{ option_2_stroke_size }}" stroke-linecap="round">
+                        <path
+                          d="M72 82.286h28.75"
+                          fill="#009100"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
+                          fill="none"
+                        />
+                        <path
+                          d="M72 125.143h28.75"
+                          fill="#009100"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
+                          fill="none"
+                        />
+                        <path
+                          d="M100.75 82.286h28.75"
+                          fill="#009100"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M100.75 125.143h28.75"
+                          fill="#009100"
+                          fill-rule="evenodd"
+                        />
+                    </g>
+                </svg>
+            {{ /if }}
+
+            {{ if hamburger_animation == 'option 3' }}
+                <span id="menu-label" class="before:bg-primary after:bg-primary before:dark:bg-secondary after:dark:bg-secondary height-{{ option_3_stroke_size }} gap-{{ option_3_gap_size }}" >
+                    <span id="menu_text_bar" class="text-{{ light_hamburger_colour }} dark:text-{{ dark_hamburger_colour }} bg-primary dark:bg-secondary height-{{ option_3_stroke_size }}" ></span>
+                </span>
+            {{ /if }}
+    </button>
+{{ /site_admin }}

@@ -1,0 +1,40 @@
+title: Slider
+fields:
+  -
+    handle: display_what
+    field:
+      options:
+        thumbs: Thumbnails
+        dots: Dots
+      inline: true
+      cast_booleans: false
+      default: thumbs
+      type: radio
+      display: 'Display What'
+      icon: radio
+      instructions: 'What would you like to display underneath the main image?'
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      always_save: true
+  -
+    handle: slider_images
+    field:
+      min_files: 1
+      mode: grid
+      container: assets
+      folder: pageContent/slider
+      restrict: false
+      allow_uploads: true
+      show_filename: true
+      show_set_alt: true
+      type: assets
+      display: 'Image Set'
+      icon: assets
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false

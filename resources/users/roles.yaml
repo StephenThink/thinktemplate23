@@ -71,6 +71,7 @@ admin:
     - 'access email utility'
     - 'access licensing utility'
     - 'resolve duplicate ids'
+    - 'access default site'
 editor:
   title: Editor
   permissions:
@@ -104,3 +105,4 @@ editor:
     - 'rename assets assets'
     - 'delete assets assets'
     - 'resolve duplicate ids'
+    - 'access default site'

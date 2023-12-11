@@ -1,0 +1,125 @@
+/* Define a variable for animation speed */
+:root {
+    --speed: 0.25s; /* Animation speed variable */
+    }
+
+/* Styling for the main button */
+#sendMailButton {
+    cursor: pointer;
+    position: relative;
+    border: 1px solid hsl(0 0% 100% / 0.25);
+    border-radius: 100px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: auto 3.5em; /* Two columns within the button */
+    gap: 1.5em; /* Spacing between columns */
+    font-weight: 80;
+    background: hsl(280 0% 12%); /* Background color */
+    color: hsl(0 0% 90%); /* Text color */
+    padding: 0.5em 0.5em 0.5em 1.5em; /* Padding */
+    place-items: center; /* Centering content */
+    box-shadow: /* Box shadow effects */
+        0 1px inset hsl(0 0% 100% / 0.5),
+        0 -10px 20px 10px hsl(0 0% 0% / 0.5) inset,
+        0 10px 20px 10px hsl(0 0% 50% / 0.25) inset,
+        0 1px hsl(0 0% 2% / 0.75);
+    letter-spacing: 0.05ch; /* Letter spacing */
+    }
+
+/* Focus styling for the button */
+#sendMailButton:focus-visible {
+    outline-offset: 0.5em;
+    outline-color: hsl(280 80% 80% / 0.5); /* Outline color */
+    }
+
+/* Styling for the icon within the button */
+.icon {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    }
+
+/* Styling for the backdrop of the icon */
+.backdrop {
+    position: absolute;
+    inset: 0.5em;
+    }
+
+/* Styling for the icon itself */
+.icon {
+    overflow: hidden;
+    }
+
+/* Styling for the SVG within the icon */
+.icon svg {
+    width: 50%; /* Set SVG width */
+    overflow: visible !important;
+    }
+
+/* Styling for the second path of the SVG */
+svg path:nth-of-type(2) {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+    transition: /* Transition effects */
+        fill var(--speed),
+        rotate var(--speed),
+        scale var(--speed),
+        translate var(--speed);
+    }
+
+/* Styling for the first path of the SVG */
+svg path:nth-of-type(1) {
+    translate: 5rem 0; /* Translate transformation */
+    transform-box: fill-box;
+    transition: translate var(--speed);
+    opacity: 0.75; /* Opacity */
+    }
+
+/* Button animation on hover and focus */
+#sendMailButton:is(:hover, :focus-visible) svg path:nth-of-type(2) {
+    translate: 0 -50%;
+    rotate: 290deg;
+    scale: 0.65;
+    fill: hsl(0 0% 20%); /* Fill color change */
+    transition-timing-function: ease, ease, cubic-bezier(.2, .7, .9, 1.5); /* Transition timing */
+    }
+
+/* Button animation on hover and focus for the first path of the SVG */
+#sendMailButton:is(:hover, :focus-visible) svg path:nth-of-type(1) {
+    translate: 0 0;
+    }
+
+/* Styling for the action element within the button */
+.action {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background: /* Background gradient */
+        linear-gradient(transparent 50%, hsl(0 0% 30% / 0.5)),
+        hsl(0 0% 0%);
+    box-shadow: 0 -1px inset hsl(0 0% 100% / 0.35); /* Box shadow */
+    width: 3.5em;
+    aspect-ratio: 1;
+    transition: width var(--speed); /* Width transition */
+    border-radius: 100px; /* Border radius */
+    }
+
+/* Styling for the icon within the action */
+.icon {
+    color: hsl(0 0% 90%); /* Icon color */
+    display: grid;
+    place-items: center;
+    z-index: 2;
+    }
+
+/* Styling for the text within the button */
+.text {
+    display: inline-block;
+    z-index: 2;
+    padding: 0 2rem; /* Padding */
+    }
+
+/* Action width transition on hover and focus */
+#sendMailButton:is(:hover, :focus-visible) .action {
+    width: 100%;
+    }

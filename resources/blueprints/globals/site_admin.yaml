@@ -18,6 +18,72 @@ tabs:
               instructions_position: above
               visibility: visible
               hide_display: false
+          -
+            handle: cookie_header
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: Header
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              always_save: true
+              if:
+                show_cookie_dialog: 'equals true'
+          -
+            handle: cookie_description
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: Description
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              if:
+                show_cookie_dialog: 'equals true'
+              always_save: true
+          -
+            handle: cookie_accept_button_text
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Accept Button Text'
+              icon: text
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              always_save: true
+              if:
+                show_cookie_dialog: 'equals true'
+          -
+            handle: cookie_reject_button_text
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Reject Button Text'
+              icon: text
+              width: 50
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+              always_save: true
+              if:
+                show_cookie_dialog: 'equals true'
       -
         display: 'Google Analytics'
         instructions: 'Please fill these in before activating the Google Analytics'
@@ -194,6 +260,20 @@ tabs:
               show_set_alt: true
               hide_display: false
           -
+            handle: site_by
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Site By'
+              icon: text
+              instructions: 'What would you like to be displayed before the Company Name?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
             handle: company_name
             field:
               input_type: text
@@ -207,6 +287,8 @@ tabs:
               instructions_position: above
               visibility: visible
               always_save: false
+              replicator_preview: true
+              hide_display: false
           -
             handle: company_link
             field:
@@ -387,7 +469,88 @@ tabs:
     display: Navigation
     sections:
       -
-        display: 'Navigation Customising'
+        display: 'Desktop Nav Settings'
+        instructions: 'This will affect the Navbar when viewing on a tablet / desktop.'
+        fields:
+          -
+            handle: nav_style
+            field:
+              options:
+                default: Default
+                minimal: Minimal
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: default
+              type: select
+              display: 'Nav Style'
+              icon: select
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: behaviour
+            field:
+              options:
+                regular: Regular
+                'fixed top-0 left-0': Fixed
+                'fixed top-0 left-0 show-on-scroll-up anime-opacity': 'Scroll Up Disappear'
+                'fixed top-0 left-0 show-on-scroll-up anime-shrink': 'Scroll Up Shrink'
+                'fixed top-0 left-0 show-on-scroll-up anime-zoom': 'Scroll Up Zoom'
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: fixed
+              type: select
+              display: Behaviour
+              icon: select
+              instructions: |-
+                How does the menu behave?<br>
+                Regular: it will disappear when you scroll away,<br>
+                Fixed: it will always be visible,<br>
+                Scroll Up Disappear: it will disappear as you scroll down, but will be visible when you scroll up,<br>
+                Scroll Up Shrink: it will minimize up as you scroll down, but will be visible when you scroll up,<br>
+                Scroll Up Zoom: it will zoom off the screen as you scroll down, but will be visible when you scroll up,<br>
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: animate_links
+            field:
+              options:
+                'no': 'No'
+                'yes': 'Yes'
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: 'no'
+              type: select
+              display: 'Animate Links'
+              icon: select
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+      -
+        display: 'Mobile Navigation Customising'
+        instructions: 'This will effect when seeing the Menu on a smaller device'
         fields:
           -
             handle: nav_animation
@@ -415,6 +578,31 @@ tabs:
               visibility: visible
               hide_display: false
               instructions: 'What type of Animation would you like for your Menu on Mobile View?'
+          -
+            handle: animation_type
+            field:
+              options:
+                'off': 'Off'
+                appear: Appear
+                drop: Drop
+                left: Left
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: 'off'
+              type: select
+              display: 'Animation Type'
+              icon: select
+              instructions: 'Do you want an animation for the Mobile Nav Links?'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
           -
             handle: light_hamburger_colour
             field:
@@ -636,3 +824,72 @@ tabs:
               always_save: true
               width: 50
               instructions: 'How big would you like the patties in the Hamburger?'
+  page:
+    display: Page
+    sections:
+      -
+        display: 'Page Transitions'
+        instructions: 'Would you like any page transitions?'
+        fields:
+          -
+            handle: transition_effect
+            field:
+              options:
+                'no': 'No'
+                opacity: Opacity
+                slide: Slide
+                zoom: Zoom
+                rotation: Rotation
+                overlay: Overlay
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              default: 'no'
+              type: select
+              display: 'Transition Effect'
+              icon: select
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
+            handle: button_style
+            field:
+              options:
+                animate-swipe: 'Animate swipe'
+                animate-swipe-fill: 'Animate swipe and fill'
+                criss-cross-colour: 'Criss cross colour'
+                appearing-shadow: 'Appearing Shadow'
+                fill-down: 'Fill Down'
+                highlight-from-middle: 'Highlight from middle'
+                icon-left-right-label: 'Icon Left Right Label'
+                3d-slide-fill: '3D Slide Fill'
+                neon: Neon
+                expanding-fill-down: 'Expanding Fill Down'
+                expanding-fill-up: 'Expanding Fill Up'
+                expanding-unfill-up: 'Expanding Unfill Up'
+                expanding-unfill-down: 'Expanding Unfill Down'
+                send-mail: 'Send Mail'
+                rotate-rollover: 'Rotate Rollover'
+                split-rotate: 'Split Rotate'
+              taggable: false
+              push_tags: false
+              multiple: false
+              max_items: 1
+              clearable: false
+              searchable: true
+              cast_booleans: false
+              type: select
+              display: 'Button Style'
+              icon: select
+              instructions: 'Please pick a style for the buttons'
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false

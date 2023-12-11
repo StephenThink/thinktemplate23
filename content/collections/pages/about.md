@@ -3,7 +3,7 @@ id: 288ed25c-b9a4-428f-a86c-3d2c4c8cbfb7
 blueprint: page
 title: About
 updated_by: 404a53a5-40da-4ab9-b61d-0356469d236d
-updated_at: 1696599503
+updated_at: 1699979695
 template: pages/about
 hero_activated: true
 image_or_colour: colour
@@ -239,6 +239,7 @@ page_content:
           - pageContent/brickGallery/tower.jpeg
           - pageContent/brickGallery/wallpaperflare.com_wallpaper.jpg
           - pageContent/brickGallery/zeldaleft.jpeg
+        display_what: thumbs
   -
     type: set
     attrs:

@@ -9,7 +9,7 @@
 
     {{ /if }}
     {{ if display_which == 'heading' }}
-            <h1 id="heroText" class="z-10 text-lg md:text-5xl">
+            <h1 id="heroText" class="z-10">
                 {{ heading | widont }}
             </h1>
         {{  if sub_heading }}
@@ -20,5 +20,11 @@
                 {{ introduction | widont }}
             </p>
         {{  /if }}
+    {{ partial:components/button
+        label="Button"
+        type="link"
+        destination="{url}"
+        new_window="true"
+    }}
 </div>
 {{ /if }}

@@ -1,0 +1,46 @@
+<nav id="mainNav" class="{{site_admin:behaviour}} h-12 w-full px-10 z-main-nav bg-secondary text-primary dark:bg-primary dark:text-secondary md:h-14" data-animation-type="{{site_admin:animation_type}}" x-data="{ mobileNavOpen: false }"
+     @click.away="mobileNavOpen = false"
+     @keydown.escape.window="mobileNavOpen = false"
+data-nav-style="{{ navStyle }}"
+>
+
+
+    {{ partial:components/navigation/type/{site_admin:nav_style}/desktop }}
+
+
+
+
+    {{# Mobile Navigation #}}
+    <div id="mobileNav" class="fixed top-12 right-0 left-0 z-0 max-h-screen overflow-hidden px-10 bg-secondary dark:bg-primary md:top-14 lg:hidden"
+         x-show="mobileNavOpen" x-cloak {{ site_admin:nav_animation }}
+    >
+        {{ if search_page:mobile_search_position == "top" }}
+            <div class="my-5">
+                {{ partial:components/search/mobile_nav_search }}
+            </div>
+        {{ /if }}
+
+        {{ nav:main_nav }}
+            <a href="{{ url }}" class="block p-2 transition text-primary hover:bg-gray-700 dark:text-secondary dark:hover:bg-amber-600 dark:hover:text-gray-700">{{ title }}</a>
+        {{ /nav:main_nav }}
+
+        {{ if search_page:mobile_search_position == "below" }}
+            <div class="my-5">
+                {{ partial:components/search/mobile_nav_search }}
+            </div>
+        {{ /if }}
+
+
+        {{ if search_page:mobile_search_position == "bottom" }}
+            <div class="mt-24 mb-10">
+                {{ partial:components/search/mobile_nav_search }}
+            </div>
+        {{ /if }}
+    </div>
+
+
+
+
+
+
+</nav>

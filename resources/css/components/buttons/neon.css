@@ -1,0 +1,93 @@
+:root {
+    --clr-primary: #2196f3;
+    --clr-secondary: #255784;
+    --line-size: 2px;
+    --run-duration: .5s;
+    }
+
+.neon-button {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: var(--clr-primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    /*font-size: 24px;*/
+    overflow: hidden;
+    transition: 0.2s;
+    }
+
+.neon-button:hover {
+    color: var(--clr-secondary);
+    background: var(--clr-primary);
+    box-shadow:
+        0 0 10px var(--clr-primary),
+        0 0 40px var(--clr-primary),
+        0 0 80px var(--clr-primary);
+    transition-delay: var(--run-duration);
+    }
+
+.neon-button span {
+    position: absolute;
+    display: block;
+    }
+
+.neon-button span:nth-child(1)
+{
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: var(--line-size);
+    background: linear-gradient(90deg,transparent, var(--clr-primary));
+    }
+.neon-button:hover span:nth-child(1)
+{
+    left: 100%;
+    transition: var(--run-duration);
+    }
+
+.neon-button span:nth-child(3)
+{
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: var(--line-size);
+    background: linear-gradient(270deg,transparent, var(--clr-primary));
+    }
+.neon-button:hover span:nth-child(3)
+{
+    right: 100%;
+    transition: var(--run-duration);
+    transition-delay: calc(var(--run-duration) / 2);
+    }
+
+.neon-button span:nth-child(2)
+{
+    top: -100%;
+    right: 0;
+    width: var(--line-size);
+    height: 100%;
+    background: linear-gradient(180deg,transparent, var(--clr-primary));
+    }
+.neon-button:hover span:nth-child(2)
+{
+    top: 100%;
+    transition: var(--run-duration);
+    transition-delay: calc(var(--run-duration) / 4);
+    }
+
+.neon-button span:nth-child(4)
+{
+    bottom: -100%;
+    left: 0;
+    width: var(--line-size);
+    height: 100%;
+    background: linear-gradient(360deg,transparent, var(--clr-primary));
+    }
+.neon-button:hover span:nth-child(4)
+{
+    bottom: 100%;
+    transition: var(--run-duration);
+    transition-delay: calc((var(--run-duration) / 4)*3)
+    }

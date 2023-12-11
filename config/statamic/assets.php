@@ -114,7 +114,6 @@ return [
             'card_image' => ['w' => 200, 'h' => 200, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'gallery_image' => ['w' => 600, 'h' => 600, 'q' => 90, 'fit' => 'max', 'format' => 'webp'],
             'gallery_thumb' => ['w' => 600, 'h' => 500, 'q' => 75, 'fit' => 'crop_focal', 'format' => 'webp'],
-            'slider_image' => ['w' => 800, 'h' => 600, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'news_image' => ['w' => 600, 'h' => 400, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'featured_image' => ['w' => 1800, 'h' => 1200, 'q' => 90, 'filter' => 'greyscale', 'format' => 'webp'],
             'flip_card_image' => ['w' => 300, 'h' => 400, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
@@ -130,6 +129,9 @@ return [
             'side_by_side' => ['h' => 659, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'banner' => ['h' => 659, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
             'booking_banner' => ['h' => 659, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+
+            'slider_image' => ['w' => 800, 'h' => 600, 'q' => 90, 'fit' => 'crop_focal', 'format' => 'webp'],
+            'slider_image_thumb' => ['w' => 130, 'h' => 65, 'q' => 70, 'fit' => 'max', 'format' => 'webp'],
 
         ],
 

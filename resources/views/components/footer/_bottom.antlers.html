@@ -10,7 +10,7 @@
     <div class="mt-2 flex lg:mt-0">
         {{ if site_admin:display_what == "text" }}
             <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
-                Created by {{ site_admin:company_name }}</a>
+                {{ site_admin:site_by }} {{ site_admin:company_name }}</a>
         {{ elseif site_admin:display_what == "logo" }}
             <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
                 {{ svg :src="site_admin:company_logo" class="fill-think-yellow dark:fill-think-dark" }}
@@ -19,7 +19,7 @@
         {{ else }}
             <a href="{{ site_admin:company_link }}" target="_blank" class="flex-col">
                 {{ svg :src="site_admin:company_logo" class="fill-think-yellow dark:fill-think-dark" }}
-                Created by {{ site_admin:company_name }}
+                {{ site_admin:site_by }} {{ site_admin:company_name }}
             </a>
         {{ /if }}
     </div>

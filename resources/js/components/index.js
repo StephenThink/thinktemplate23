@@ -11,3 +11,4 @@ export { default as barbaJs } from './barbaJs'
 
 // Export the 'cookie' component from the 'cookie.js' file.
 export { default as cookie } from './cookie'
+export { default as navbars } from './navbars'

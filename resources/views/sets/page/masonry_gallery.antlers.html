@@ -12,7 +12,7 @@
              data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-delay="{{ index * 150 }}"
              >
 
-                <img src="{{ glide:brick preset='masonry_thumb' }}" alt="{{ brick.alt }}" loading="lazy"
+                <img src="{{ glide:brick preset='masonry_thumb' }}" alt="{{ brick.alt }}" loading="lazy" width="{{ brick.width }}" height="{{ brick.height }}"
                      @mouseenter="hover('{{ glide:brick preset='masonry' }}', '{{ brick.alt }}', '{{ brick_title }}', '{{ brick_content }}',  '{{ brick_link }}')"
                      @click="appear"
                 >
@@ -75,7 +75,7 @@
                     </div>
                     <div class="pt-2">
 
-                        <img x-bind:src="imageUrl" x-bind:alt="altText" />
+                        <img x-bind:src="imageUrl" x-bind:alt="altText" width="800" height="600" />
                         <div class="max-w-none prose lg:prose-lg" x-text="content"></div>
                     </div>
                 </div>

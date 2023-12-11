@@ -547,21 +547,7 @@ fields:
               icon: arrows-fit-to-width
               fields:
                 -
-                  handle: slider_images
-                  field:
-                    mode: grid
-                    container: assets
-                    folder: pageContent/slider
-                    restrict: false
-                    allow_uploads: true
-                    show_filename: true
-                    display: 'Slider Images'
-                    type: assets
-                    icon: assets
-                    listable: hidden
-                    instructions_position: above
-                    visibility: visible
-                    always_save: false
+                  import: slider
             flip_cards:
               display: 'Flip Cards'
               instructions: null
